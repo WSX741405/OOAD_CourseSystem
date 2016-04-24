@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this._checkClassScheduleButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // _checkClassScheduleButton
+            // 
+            this._checkClassScheduleButton.Location = new System.Drawing.Point(651, 36);
+            this._checkClassScheduleButton.Name = "_checkClassScheduleButton";
+            this._checkClassScheduleButton.Size = new System.Drawing.Size(75, 23);
+            this._checkClassScheduleButton.TabIndex = 0;
+            this._checkClassScheduleButton.Text = "查詢課表";
+            this._checkClassScheduleButton.UseVisualStyleBackColor = true;
+            this._checkClassScheduleButton.Click += new System.EventHandler(this.ClickCheckClassScheduleButton);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 373);
+            this.Controls.Add(this._checkClassScheduleButton);
             this.Name = "Form1";
             this.Text = "課程系統";
             this.ResumeLayout(false);
@@ -42,6 +54,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Button _checkClassScheduleButton;
     }
 }
 

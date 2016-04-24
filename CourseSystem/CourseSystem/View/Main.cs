@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseSystem.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace CourseSystem
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void ClickCheckClassScheduleButton(object sender, EventArgs e)
+        {
+            PersonalClassSchedule classSchedule = new PersonalClassSchedule();
+            classSchedule.ShowDialog();
         }
     }
 }
