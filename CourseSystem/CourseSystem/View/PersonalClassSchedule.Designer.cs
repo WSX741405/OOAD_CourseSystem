@@ -71,6 +71,8 @@
             // 
             // _classScheduleDataGridView
             // 
+            this._classScheduleDataGridView.AllowUserToAddRows = false;
+            this._classScheduleDataGridView.AllowUserToDeleteRows = false;
             this._classScheduleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._classScheduleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Time,
