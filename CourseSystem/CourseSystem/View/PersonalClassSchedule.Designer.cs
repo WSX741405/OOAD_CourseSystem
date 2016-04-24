@@ -71,6 +71,8 @@
             // 
             // _classScheduleDataGridView
             // 
+            this._classScheduleDataGridView.AllowUserToAddRows = false;
+            this._classScheduleDataGridView.AllowUserToDeleteRows = false;
             this._classScheduleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._classScheduleDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Time,
@@ -83,6 +85,7 @@
             this.Sunday});
             this._classScheduleDataGridView.Location = new System.Drawing.Point(12, 83);
             this._classScheduleDataGridView.Name = "_classScheduleDataGridView";
+            this._classScheduleDataGridView.ReadOnly = true;
             this._classScheduleDataGridView.RowTemplate.Height = 24;
             this._classScheduleDataGridView.Size = new System.Drawing.Size(703, 436);
             this._classScheduleDataGridView.TabIndex = 3;
