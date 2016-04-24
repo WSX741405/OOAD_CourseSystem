@@ -83,6 +83,7 @@
             this.Sunday});
             this._classScheduleDataGridView.Location = new System.Drawing.Point(12, 83);
             this._classScheduleDataGridView.Name = "_classScheduleDataGridView";
+            this._classScheduleDataGridView.ReadOnly = true;
             this._classScheduleDataGridView.RowTemplate.Height = 24;
             this._classScheduleDataGridView.Size = new System.Drawing.Size(703, 436);
             this._classScheduleDataGridView.TabIndex = 3;
@@ -91,41 +92,49 @@
             // 
             this.Time.HeaderText = "";
             this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
             // 
             // Monday
             // 
             this.Monday.HeaderText = "星期一";
             this.Monday.Name = "Monday";
+            this.Monday.ReadOnly = true;
             // 
             // Tuesday
             // 
             this.Tuesday.HeaderText = "星期二";
             this.Tuesday.Name = "Tuesday";
+            this.Tuesday.ReadOnly = true;
             // 
             // Wednesday
             // 
             this.Wednesday.HeaderText = "星期三";
             this.Wednesday.Name = "Wednesday";
+            this.Wednesday.ReadOnly = true;
             // 
             // Thursday
             // 
             this.Thursday.HeaderText = "星期四";
             this.Thursday.Name = "Thursday";
+            this.Thursday.ReadOnly = true;
             // 
             // Friday
             // 
             this.Friday.HeaderText = "星期五";
             this.Friday.Name = "Friday";
+            this.Friday.ReadOnly = true;
             // 
             // Saturday
             // 
             this.Saturday.HeaderText = "星期六";
             this.Saturday.Name = "Saturday";
+            this.Saturday.ReadOnly = true;
             // 
             // Sunday
             // 
             this.Sunday.HeaderText = "星期日";
             this.Sunday.Name = "Sunday";
+            this.Sunday.ReadOnly = true;
             // 
             // PersonalClassSchedule
             // 
