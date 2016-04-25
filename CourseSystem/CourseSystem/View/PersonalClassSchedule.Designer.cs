@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this._idLabel = new System.Windows.Forms.Label();
+            this._addidLabel = new System.Windows.Forms.Label();
             this._idTextBox = new System.Windows.Forms.TextBox();
             this._checkScheduleButton = new System.Windows.Forms.Button();
             this._classScheduleDataGridView = new System.Windows.Forms.DataGridView();
@@ -40,17 +40,18 @@
             this.Friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sunday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._currentIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._classScheduleDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // _idLabel
+            // _addidLabel
             // 
-            this._idLabel.AutoSize = true;
-            this._idLabel.Location = new System.Drawing.Point(380, 43);
-            this._idLabel.Name = "_idLabel";
-            this._idLabel.Size = new System.Drawing.Size(77, 12);
-            this._idLabel.TabIndex = 0;
-            this._idLabel.Text = "請輸入學號：";
+            this._addidLabel.AutoSize = true;
+            this._addidLabel.Location = new System.Drawing.Point(380, 43);
+            this._addidLabel.Name = "_addidLabel";
+            this._addidLabel.Size = new System.Drawing.Size(77, 12);
+            this._addidLabel.TabIndex = 0;
+            this._addidLabel.Text = "請輸入學號：";
             // 
             // _idTextBox
             // 
@@ -138,15 +139,24 @@
             this.Sunday.Name = "Sunday";
             this.Sunday.ReadOnly = true;
             // 
+            // _currentIdLabel
+            // 
+            this._currentIdLabel.AutoSize = true;
+            this._currentIdLabel.Location = new System.Drawing.Point(55, 42);
+            this._currentIdLabel.Name = "_currentIdLabel";
+            this._currentIdLabel.Size = new System.Drawing.Size(0, 12);
+            this._currentIdLabel.TabIndex = 4;
+            // 
             // PersonalClassSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 531);
+            this.Controls.Add(this._currentIdLabel);
             this.Controls.Add(this._classScheduleDataGridView);
             this.Controls.Add(this._checkScheduleButton);
             this.Controls.Add(this._idTextBox);
-            this.Controls.Add(this._idLabel);
+            this.Controls.Add(this._addidLabel);
             this.Name = "PersonalClassSchedule";
             this.Text = "PersonalClassSchedule";
             ((System.ComponentModel.ISupportInitialize)(this._classScheduleDataGridView)).EndInit();
@@ -157,7 +167,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label _idLabel;
+        private System.Windows.Forms.Label _addidLabel;
         private System.Windows.Forms.TextBox _idTextBox;
         private System.Windows.Forms.Button _checkScheduleButton;
         private System.Windows.Forms.DataGridView _classScheduleDataGridView;
@@ -169,5 +179,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Friday;
         private System.Windows.Forms.DataGridViewTextBoxColumn Saturday;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sunday;
+        private System.Windows.Forms.Label _currentIdLabel;
     }
 }
