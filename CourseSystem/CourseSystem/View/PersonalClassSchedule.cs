@@ -25,7 +25,6 @@ namespace CourseSystem.View
             _currentIdLabel.Text = "學號：" + _idTextBox.Text;
             string[] recordContent = { "8:10~9:00", "微積分", "", "", "", "", "" };
             ClearClassSchedule();   //  clear all record in schedule
-            //PushRecordIntoClassSchedule(recordContent);  // push record after final record
             _classScheduleDataGridView.Rows.Add(recordContent);
         }
 
