@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSModel\BaseObject\Course.cs" />
+    <Compile Include="CSModel\BaseObject\TimeSlice.cs" />
     <Compile Include="CSModel\Classroom Model.cs" />
     <Compile Include="CSModel\Course Model.cs" />
     <Compile Include="CSModel\Grades Model.cs" />

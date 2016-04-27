@@ -8,5 +8,6 @@ namespace CourseSystem
 {
     class Timeslice_Model
     {
+
     }
 }
