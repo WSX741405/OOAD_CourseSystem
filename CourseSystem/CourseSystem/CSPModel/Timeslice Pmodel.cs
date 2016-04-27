@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseSystem.PModel
+namespace CourseSystem
 {
-    public class Classroom_Pmodel
+    class Timeslice_Pmodel
     {
     }
 }

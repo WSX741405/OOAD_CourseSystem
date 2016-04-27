@@ -33,7 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=7.0.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,30 +45,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Classroom Model.cs" />
-    <Compile Include="Model\Course Model.cs" />
-    <Compile Include="Model\Grades Model.cs" />
-    <Compile Include="Model\Message Model.cs" />
-    <Compile Include="Model\MessageBoard Model.cs" />
-    <Compile Include="Model\Model.cs" />
-    <Compile Include="Model\Professor Model.cs" />
-    <Compile Include="Model\Semester Model.cs" />
-    <Compile Include="Model\Staff Model.cs" />
-    <Compile Include="Model\Student Model.cs" />
-    <Compile Include="Model\Timeslice Model.cs" />
-    <Compile Include="Model\User Model.cs" />
-    <Compile Include="PModel\Classroom Pmodel.cs" />
-    <Compile Include="PModel\Course Pmodel.cs" />
-    <Compile Include="PModel\Grades PModel.cs" />
-    <Compile Include="PModel\Message PModel.cs" />
-    <Compile Include="PModel\MessageBoard PModel.cs" />
-    <Compile Include="PModel\PModel.cs" />
-    <Compile Include="PModel\Professor PModel.cs" />
-    <Compile Include="PModel\Semester PModel.cs" />
-    <Compile Include="PModel\Staff PModel.cs" />
-    <Compile Include="PModel\Student PModel.cs" />
-    <Compile Include="PModel\Timeslice Pmodel.cs" />
-    <Compile Include="PModel\User PModel.cs" />
+    <Compile Include="CSModel\Classroom Model.cs" />
+    <Compile Include="CSModel\Course Model.cs" />
+    <Compile Include="CSModel\Grades Model.cs" />
+    <Compile Include="CSModel\Message Model.cs" />
+    <Compile Include="CSModel\MessageBoard Model.cs" />
+    <Compile Include="CSModel\Model.cs" />
+    <Compile Include="CSModel\Professor Model.cs" />
+    <Compile Include="CSModel\Semester Model.cs" />
+    <Compile Include="CSModel\Staff Model.cs" />
+    <Compile Include="CSModel\Student Model.cs" />
+    <Compile Include="CSModel\Timeslice Model.cs" />
+    <Compile Include="CSModel\User Model.cs" />
+    <Compile Include="CSPModel\Classroom Pmodel.cs" />
+    <Compile Include="CSPModel\Course Pmodel.cs" />
+    <Compile Include="CSPModel\Grades PModel.cs" />
+    <Compile Include="CSPModel\Message PModel.cs" />
+    <Compile Include="CSPModel\MessageBoard PModel.cs" />
+    <Compile Include="CSPModel\PModel.cs" />
+    <Compile Include="CSPModel\Professor PModel.cs" />
+    <Compile Include="CSPModel\Semester PModel.cs" />
+    <Compile Include="CSPModel\Staff PModel.cs" />
+    <Compile Include="CSPModel\Student PModel.cs" />
+    <Compile Include="CSPModel\Timeslice Pmodel.cs" />
+    <Compile Include="CSPModel\User PModel.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="View\ComputeGrade.cs">
       <SubType>Form</SubType>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseSystem.PModel
+namespace CourseSystem
 {
-    class User_PModel
+    class Professor_Model
     {
     }
 }

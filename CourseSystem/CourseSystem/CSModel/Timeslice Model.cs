@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseSystem.Model
+namespace CourseSystem
 {
-    class Staff_Model
+    class Timeslice_Model
     {
     }
 }
