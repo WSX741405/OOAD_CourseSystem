@@ -59,18 +59,7 @@
     <Compile Include="CSModel\Student Model.cs" />
     <Compile Include="CSModel\Timeslice Model.cs" />
     <Compile Include="CSModel\User Model.cs" />
-    <Compile Include="CSPModel\Classroom Pmodel.cs" />
-    <Compile Include="CSPModel\Course Pmodel.cs" />
-    <Compile Include="CSPModel\Grades PModel.cs" />
-    <Compile Include="CSPModel\Message PModel.cs" />
-    <Compile Include="CSPModel\MessageBoard PModel.cs" />
     <Compile Include="CSPModel\PModel.cs" />
-    <Compile Include="CSPModel\Professor PModel.cs" />
-    <Compile Include="CSPModel\Semester PModel.cs" />
-    <Compile Include="CSPModel\Staff PModel.cs" />
-    <Compile Include="CSPModel\Student PModel.cs" />
-    <Compile Include="CSPModel\Timeslice Pmodel.cs" />
-    <Compile Include="CSPModel\User PModel.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="View\ComputeGrade.cs">
       <SubType>Form</SubType>
