@@ -25,5 +25,11 @@ namespace CourseSystem
             PersonalClassSchedule classSchedule = new PersonalClassSchedule();
             classSchedule.ShowDialog();
         }
+
+        private void ClickComputeGradeButton(object sender, EventArgs e)
+        {
+            ComputeGrade studentGrade = new ComputeGrade();
+            studentGrade.ShowDialog();
+        }
     }
 }

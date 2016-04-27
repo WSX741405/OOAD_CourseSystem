@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this._checkClassScheduleButton = new System.Windows.Forms.Button();
+            this._computeGradeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
@@ -41,11 +42,22 @@
             this._checkClassScheduleButton.UseVisualStyleBackColor = true;
             this._checkClassScheduleButton.Click += new System.EventHandler(this.ClickCheckClassScheduleButton);
             // 
+            // _computeGradeButton
+            // 
+            this._computeGradeButton.Location = new System.Drawing.Point(651, 92);
+            this._computeGradeButton.Name = "_computeGradeButton";
+            this._computeGradeButton.Size = new System.Drawing.Size(75, 23);
+            this._computeGradeButton.TabIndex = 1;
+            this._computeGradeButton.Text = "成績計算";
+            this._computeGradeButton.UseVisualStyleBackColor = true;
+            this._computeGradeButton.Click += new System.EventHandler(this.ClickComputeGradeButton);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 373);
+            this.Controls.Add(this._computeGradeButton);
             this.Controls.Add(this._checkClassScheduleButton);
             this.Name = "Form1";
             this.Text = "課程系統";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button _checkClassScheduleButton;
+        private System.Windows.Forms.Button _computeGradeButton;
     }
 }
 
