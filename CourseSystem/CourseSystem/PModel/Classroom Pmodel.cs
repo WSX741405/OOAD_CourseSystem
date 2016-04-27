@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseSystem.PModel
 {
-    class Classroom_Pmodel
+    public class Classroom_Pmodel
     {
     }
 }

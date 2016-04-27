@@ -10,7 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
 
-namespace RMS
+namespace CourseSystem
 {
     //這個東西是老外寫好的，專門針對SQL Server的操作class
     //裡面有很多十分方便的東西
