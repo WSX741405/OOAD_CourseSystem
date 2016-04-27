@@ -13,10 +13,10 @@ namespace CourseSystem
         public void ConnectDatabase (string SQLCommand)
         {
             MySql.Data.MySqlClient.MySqlConnection connection;
-            string server = "spring-ooad.ddns.net";
-            string database = "ooad-cs";
-            string uid = "ooad-cs";
-            string password = "ooad-cs";
+            string server = "localhost";
+            string database = "test";
+            string uid = "root";
+            string password = "";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
