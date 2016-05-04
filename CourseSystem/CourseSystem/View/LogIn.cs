@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CourseSystem.View
 {
@@ -26,14 +27,27 @@ namespace CourseSystem.View
         {
             _userId = _userIdTextBox.Text;
             _userPwd = _userPwdTextBox.Text;
-            if (_pmodel.FindUser(_userId) == false)
-            {
-                _pmodel.InseretIntoDatabase(SQL);
-            }
-            else 
-            {
-                MessageBox.Show(this, "User Exist!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
+            string SQL;
+            string connectionString = "Data Source=127.0.0.1; User ID=root; Password=; database=test";
+
+            SqlParameter[] prams = {
+                SqlHelper.MakeInParam("@userId", SqlDbType.VarChar, 999, _userId)
+            };
+            SQL = "INSERT INTO user VALUES(@userId,@password)";
+            SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, SQL, prams);
+            //try
+            //{
+            //    if (_pmodel.CreateUser(_userId) == true)
+            //    {
+            //        _userIdTextBox.Text = "OK";
+            //        MessageBox.Show(this, "User Exist!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+
+            //}
         }
     }
 }

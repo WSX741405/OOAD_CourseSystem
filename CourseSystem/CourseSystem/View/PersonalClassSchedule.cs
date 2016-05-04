@@ -26,8 +26,8 @@ namespace CourseSystem.View
 
         private void ClickCheckScheduleButton(object sender, EventArgs e)
         {
-            String SQLCommand = "insert into  test (a,b,c) values('1','12','1234')";
-            _pmodel.InseretIntoDatabase(SQLCommand);
+            //String SQLCommand = "insert into  test (a,b,c) values('1','12','1234')";
+            //_pmodel.InseretIntoDatabase(SQLCommand);
             //getData();
             /*_currentIdLabel.Text = "學號：" + _idTextBox.Text;
             string[] recordContent = { "8:10~9:00", "微積分", "", "", "", "", "" };
