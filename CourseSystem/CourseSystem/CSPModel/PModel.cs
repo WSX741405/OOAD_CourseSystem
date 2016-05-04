@@ -13,5 +13,14 @@ namespace CourseSystem
         {
             _model.ConnectDatabase(SQLCommand);
         }
+
+        public bool FindUser(string userId) 
+        {
+            if (_model.FindUser(userId) == false) 
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

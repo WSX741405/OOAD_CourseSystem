@@ -31,5 +31,11 @@ namespace CourseSystem
             ComputeGrade studentGrade = new ComputeGrade();
             studentGrade.ShowDialog();
         }
+
+        private void _logInButton_Click(object sender, EventArgs e)
+        {
+            LogIn _logInForm = new LogIn();
+            _logInForm.ShowDialog();
+        }
     }
 }

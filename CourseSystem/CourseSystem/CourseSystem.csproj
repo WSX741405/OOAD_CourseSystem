@@ -67,6 +67,12 @@
     <Compile Include="View\ComputeGrade.Designer.cs">
       <DependentUpon>ComputeGrade.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="View\ComputeGrade.resx">
       <DependentUpon>ComputeGrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

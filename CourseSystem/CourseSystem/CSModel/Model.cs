@@ -10,6 +10,7 @@ namespace CourseSystem
 {
     class Model
     {
+        private string SQL;
         public void ConnectDatabase (string SQLCommand)
         {
             MySql.Data.MySqlClient.MySqlConnection connection;
@@ -33,6 +34,16 @@ namespace CourseSystem
 
             }
             connection.Close();
+        }
+
+        public void CreateUser(string userId) 
+        {
+            
+        }
+
+        public bool FindUser(string userId) 
+        {
+            SQL = "SELECT * FROM User WHERE UserId=" + userId;
         }
     }
     

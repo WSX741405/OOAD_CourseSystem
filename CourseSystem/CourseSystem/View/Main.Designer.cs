@@ -30,6 +30,7 @@
         {
             this._checkClassScheduleButton = new System.Windows.Forms.Button();
             this._computeGradeButton = new System.Windows.Forms.Button();
+            this._registerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
@@ -52,11 +53,22 @@
             this._computeGradeButton.UseVisualStyleBackColor = true;
             this._computeGradeButton.Click += new System.EventHandler(this.ClickComputeGradeButton);
             // 
+            // _registerButton
+            // 
+            this._registerButton.Location = new System.Drawing.Point(43, 92);
+            this._registerButton.Name = "_registerButton";
+            this._registerButton.Size = new System.Drawing.Size(75, 23);
+            this._registerButton.TabIndex = 2;
+            this._registerButton.Text = "註冊";
+            this._registerButton.UseVisualStyleBackColor = true;
+            this._registerButton.Click += new System.EventHandler(this._logInButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 373);
+            this.Controls.Add(this._registerButton);
             this.Controls.Add(this._computeGradeButton);
             this.Controls.Add(this._checkClassScheduleButton);
             this.Name = "Form1";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button _checkClassScheduleButton;
         private System.Windows.Forms.Button _computeGradeButton;
+        private System.Windows.Forms.Button _registerButton;
     }
 }
 
