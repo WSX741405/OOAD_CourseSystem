@@ -28,24 +28,17 @@ namespace CourseSystem.View
         {
             _userId = _userIdTextBox.Text;
             _userPwd = _userPwdTextBox.Text;
-            
-            //string SQL;
-            //string connectionString = "Data Source=127.0.0.1; User ID=root; Password=; database=test";
 
-            //SqlParameter[] prams = {
-            //    SqlHelper.MakeInParam("@userId", SqlDbType.VarChar, 999, _userId)
-            //};
-            //SQL = "INSERT INTO user VALUES(@userId,@password)";
-            //SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, SQL, prams);
             try
             {
-              if( _model.CreateUser(_userId))
-                  _userIdTextBox.Text = "OK";
-               /* if (_pmodel.CreateUser(_userId) == true)
-                {
-                   
+              if (_pmodel.CreateUser(_userId, _userPwd) == true)
+                {                   
                     MessageBox.Show(this, "User Exist!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }*/
+                }
+              else if (_pmodel.CreateUser(_userId, _userPwd) == false)
+              {
+                  MessageBox.Show(this, "Done!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              }
             }
             catch (Exception ex)
             {
