@@ -16,7 +16,7 @@ namespace CourseSystem
         DataTable data;
         DataTable userData;
         public Model() { }
-        public DataSet ConnectDatabase(string SQLCommand)
+        public DataSet ConnectDatabase(string SQLCommand, string work)
         {
             MySql.Data.MySqlClient.MySqlConnection connection;
             string server = "127.0.0.1";
@@ -34,10 +34,13 @@ namespace CourseSystem
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand(SQLCommand, connection);
                 cmd.ExecuteNonQuery();
-                
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                // Fill the DataSet using default values for DataTable names, etc
-                da.Fill(dataset);
+
+                if (!work.Equals("I"))
+                {
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    // Fill the DataSet using default values for DataTable names, etc
+                    da.Fill(dataset);
+                }
             }
             catch (Exception ex)
             {
@@ -49,19 +52,23 @@ namespace CourseSystem
 
         public bool CreateUser(string userId, string password) 
         {
+            string WORK = "S"; //傳入執行動作進入ConnectDatabase
+            //搜尋此userId是否已註冊
             string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
-            DataSet ds = ConnectDatabase(SQL);
+            DataSet searchDs = ConnectDatabase(SQL,WORK);
             string tableUserId = "";
-            foreach (DataTable dt in ds.Tables)
+            foreach (DataTable searchDt in searchDs.Tables)
             {
-                foreach (DataRow dr in dt.Rows)
+                foreach (DataRow searchDr in searchDt.Rows)
                 {
-                    tableUserId = dr["UserId"].ToString();
+                    tableUserId = searchDr["UserId"].ToString();
                     if (tableUserId.Equals(userId)) return true;
                 }
             }
+            //若沒註冊，進行註冊動作
             SQL = "INSERT INTO `user`(`UserId`,`Password`) Values("+ userId+","+ password+")";
-            ds = ConnectDatabase(SQL);
+            WORK = "I";
+            DataSet insertDs = ConnectDatabase(SQL,WORK);
             return false;
             //string test = ds.Table[0].Rows[0]["UserId"].ToString();
             //SqlParameter[] prams = {

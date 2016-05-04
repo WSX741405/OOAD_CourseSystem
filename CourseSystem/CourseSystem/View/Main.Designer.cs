@@ -45,7 +45,7 @@
             // 
             // _computeGradeButton
             // 
-            this._computeGradeButton.Location = new System.Drawing.Point(651, 92);
+            this._computeGradeButton.Location = new System.Drawing.Point(742, 36);
             this._computeGradeButton.Name = "_computeGradeButton";
             this._computeGradeButton.Size = new System.Drawing.Size(75, 23);
             this._computeGradeButton.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // _registerButton
             // 
-            this._registerButton.Location = new System.Drawing.Point(43, 92);
+            this._registerButton.Location = new System.Drawing.Point(33, 36);
             this._registerButton.Name = "_registerButton";
             this._registerButton.Size = new System.Drawing.Size(75, 23);
             this._registerButton.TabIndex = 2;

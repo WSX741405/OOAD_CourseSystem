@@ -18,11 +18,7 @@ namespace CourseSystem
 
         public bool CreateUser(string userId,string password) 
         {
-            if (_model.CreateUser(userId, password) == false) 
-            {
-                return false;
-            }
-            return true;
+            return _model.CreateUser(userId, password);
         }
     }
 }

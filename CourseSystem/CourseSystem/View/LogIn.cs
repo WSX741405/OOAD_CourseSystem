@@ -35,9 +35,10 @@ namespace CourseSystem.View
                 {                   
                     MessageBox.Show(this, "User Exist!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-              else if (_pmodel.CreateUser(_userId, _userPwd) == false)
+              else
               {
                   MessageBox.Show(this, "Done!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                  this.Close();
               }
             }
             catch (Exception ex)
