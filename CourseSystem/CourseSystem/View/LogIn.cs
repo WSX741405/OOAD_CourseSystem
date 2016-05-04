@@ -14,10 +14,11 @@ namespace CourseSystem.View
 
     public partial class LogIn : Form
     {
+        Model _model = new Model();
         private string SQL;
         private string _userId;
         private string _userPwd;
-        PModel _pmodel;
+        PModel _pmodel = new PModel();
         public LogIn()
         {
             InitializeComponent();
@@ -27,27 +28,29 @@ namespace CourseSystem.View
         {
             _userId = _userIdTextBox.Text;
             _userPwd = _userPwdTextBox.Text;
+            
+            //string SQL;
+            //string connectionString = "Data Source=127.0.0.1; User ID=root; Password=; database=test";
 
-            string SQL;
-            string connectionString = "Data Source=127.0.0.1; User ID=root; Password=; database=test";
-
-            SqlParameter[] prams = {
-                SqlHelper.MakeInParam("@userId", SqlDbType.VarChar, 999, _userId)
-            };
-            SQL = "INSERT INTO user VALUES(@userId,@password)";
-            SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, SQL, prams);
-            //try
-            //{
-            //    if (_pmodel.CreateUser(_userId) == true)
-            //    {
-            //        _userIdTextBox.Text = "OK";
-            //        MessageBox.Show(this, "User Exist!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-
-            //}
+            //SqlParameter[] prams = {
+            //    SqlHelper.MakeInParam("@userId", SqlDbType.VarChar, 999, _userId)
+            //};
+            //SQL = "INSERT INTO user VALUES(@userId,@password)";
+            //SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, SQL, prams);
+            try
+            {
+              if( _model.CreateUser(_userId))
+                  _userIdTextBox.Text = "OK";
+               /* if (_pmodel.CreateUser(_userId) == true)
+                {
+                   
+                    MessageBox.Show(this, "User Exist!!", "Login Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }*/
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

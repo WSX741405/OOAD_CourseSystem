@@ -13,10 +13,10 @@ namespace CourseSystem
     class Model
     {
         private string SQL;
-        private string connectionString = "Data Source=localhost; User ID=root; Password=; database=test";
+        private string connectionString = "Server=localhost;Database=test;Uid=root;Pwd=0000";
         DataTable data;
         DataTable userData;
-
+        public Model() { }
         //public DataTable ConnectDatabase (string SQLCommand)
         //{
         //    MySql.Data.MySqlClient.MySqlConnection connection;
