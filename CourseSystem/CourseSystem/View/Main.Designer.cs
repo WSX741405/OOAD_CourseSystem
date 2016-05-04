@@ -32,6 +32,7 @@
             this._computeGradeButton = new System.Windows.Forms.Button();
             this._registerButton = new System.Windows.Forms.Button();
             this._loginButton = new System.Windows.Forms.Button();
+            this._logoutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
@@ -42,6 +43,7 @@
             this._checkClassScheduleButton.TabIndex = 0;
             this._checkClassScheduleButton.Text = "查詢課表";
             this._checkClassScheduleButton.UseVisualStyleBackColor = true;
+            this._checkClassScheduleButton.Visible = false;
             this._checkClassScheduleButton.Click += new System.EventHandler(this.ClickCheckClassScheduleButton);
             // 
             // _computeGradeButton
@@ -52,6 +54,7 @@
             this._computeGradeButton.TabIndex = 1;
             this._computeGradeButton.Text = "成績計算";
             this._computeGradeButton.UseVisualStyleBackColor = true;
+            this._computeGradeButton.Visible = false;
             this._computeGradeButton.Click += new System.EventHandler(this.ClickComputeGradeButton);
             // 
             // _registerButton
@@ -74,11 +77,22 @@
             this._loginButton.UseVisualStyleBackColor = true;
             this._loginButton.Click += new System.EventHandler(this.ClickLogInButton);
             // 
+            // _logoutButton
+            // 
+            this._logoutButton.Location = new System.Drawing.Point(143, 36);
+            this._logoutButton.Name = "_logoutButton";
+            this._logoutButton.Size = new System.Drawing.Size(75, 23);
+            this._logoutButton.TabIndex = 4;
+            this._logoutButton.Text = "登出";
+            this._logoutButton.UseVisualStyleBackColor = true;
+            this._logoutButton.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 373);
+            this.Controls.Add(this._logoutButton);
             this.Controls.Add(this._loginButton);
             this.Controls.Add(this._registerButton);
             this.Controls.Add(this._computeGradeButton);
@@ -95,6 +109,7 @@
         private System.Windows.Forms.Button _computeGradeButton;
         private System.Windows.Forms.Button _registerButton;
         private System.Windows.Forms.Button _loginButton;
+        private System.Windows.Forms.Button _logoutButton;
     }
 }
 

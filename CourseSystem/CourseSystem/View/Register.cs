@@ -13,6 +13,7 @@ namespace CourseSystem.View
 
     public partial class Register : Form
     {
+        private bool _success = false;
         private string _userId;
         private string _userPwd;
         PModel _pmodel = new PModel();
@@ -38,6 +39,7 @@ namespace CourseSystem.View
                     {
                         MessageBox.Show(this, "註冊成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         this.Close();
+                        _success = true;
                     }
                 }
                 catch (Exception ex)
@@ -54,6 +56,11 @@ namespace CourseSystem.View
         private void ClickRegisterCancelButton(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public bool CheckSuccessOrNot()
+        {
+            return _success;
         }
     }
 }

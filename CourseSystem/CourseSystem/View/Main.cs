@@ -36,6 +36,13 @@ namespace CourseSystem
         {
             LogIn _logInForm = new LogIn();
             _logInForm.ShowDialog();
+            if (_logInForm.CheckSuccessOrNot() == true)
+            {
+                _checkClassScheduleButton.Visible = true;
+                _computeGradeButton.Visible = true;
+                _registerButton.Visible = false;
+                _logoutButton.Visible = true;
+            }
         }
 
         private void ClickRegisterButton(object sender, EventArgs e)

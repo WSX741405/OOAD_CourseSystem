@@ -111,5 +111,4 @@ namespace CourseSystem
             return "None";
         }
     }
-    
 }
