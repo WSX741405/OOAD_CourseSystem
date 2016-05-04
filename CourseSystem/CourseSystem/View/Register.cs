@@ -10,21 +10,19 @@ using System.Windows.Forms;
 
 namespace CourseSystem.View
 {
-    public partial class LogIn : Form
+
+    public partial class Register : Form
     {
         private string _userId;
         private string _userPwd;
         PModel _pmodel = new PModel();
-        public LogIn()
+        public Register()
         {
             InitializeComponent();
         }
 
-        private void ClickLogInOKButton(object sender, EventArgs e)
+        private void ClickRegisterOKButton(object sender, EventArgs e)
         {
-            _userId = _userIdTextBox.Text;
-            _userPwd = _userPwdTextBox.Text;
-
             _userId = _userIdTextBox.Text;
             _userPwd = _userPwdTextBox.Text;
 
@@ -32,13 +30,13 @@ namespace CourseSystem.View
             {
                 try
                 {
-                    if (_pmodel.LogIn(_userId, _userPwd) == false)
+                    if (_pmodel.CreateUser(_userId, _userPwd) == true)
                     {
-                        MessageBox.Show(this, "使用者Id或密碼輸入錯誤!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "已存在的使用者Id!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        MessageBox.Show(this, "登入成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(this, "註冊成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         this.Close();
                     }
                 }
@@ -51,9 +49,9 @@ namespace CourseSystem.View
             {
                 MessageBox.Show(this, "使用者Id或密碼不得為空!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
         }
-        private void ClickLogInCancelButton(object sender, EventArgs e)
+
+        private void ClickRegisterCancelButton(object sender, EventArgs e)
         {
             this.Close();
         }

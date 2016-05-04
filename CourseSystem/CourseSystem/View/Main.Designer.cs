@@ -31,6 +31,7 @@
             this._checkClassScheduleButton = new System.Windows.Forms.Button();
             this._computeGradeButton = new System.Windows.Forms.Button();
             this._registerButton = new System.Windows.Forms.Button();
+            this._loginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
@@ -61,13 +62,24 @@
             this._registerButton.TabIndex = 2;
             this._registerButton.Text = "註冊";
             this._registerButton.UseVisualStyleBackColor = true;
-            this._registerButton.Click += new System.EventHandler(this._logInButton_Click);
+            this._registerButton.Click += new System.EventHandler(this.ClickRegisterButton);
+            // 
+            // _loginButton
+            // 
+            this._loginButton.Location = new System.Drawing.Point(143, 35);
+            this._loginButton.Name = "_loginButton";
+            this._loginButton.Size = new System.Drawing.Size(75, 23);
+            this._loginButton.TabIndex = 3;
+            this._loginButton.Text = "登入";
+            this._loginButton.UseVisualStyleBackColor = true;
+            this._loginButton.Click += new System.EventHandler(this.ClickLogInButton);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 373);
+            this.Controls.Add(this._loginButton);
             this.Controls.Add(this._registerButton);
             this.Controls.Add(this._computeGradeButton);
             this.Controls.Add(this._checkClassScheduleButton);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button _checkClassScheduleButton;
         private System.Windows.Forms.Button _computeGradeButton;
         private System.Windows.Forms.Button _registerButton;
+        private System.Windows.Forms.Button _loginButton;
     }
 }
 

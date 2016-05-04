@@ -32,10 +32,16 @@ namespace CourseSystem
             studentGrade.ShowDialog();
         }
 
-        private void _logInButton_Click(object sender, EventArgs e)
+        private void ClickLogInButton(object sender, EventArgs e)
         {
             LogIn _logInForm = new LogIn();
             _logInForm.ShowDialog();
+        }
+
+        private void ClickRegisterButton(object sender, EventArgs e)
+        {
+            Register _registerForm = new Register();
+            _registerForm.ShowDialog();
         }
     }
 }
