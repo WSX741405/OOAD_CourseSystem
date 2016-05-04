@@ -20,9 +20,10 @@ namespace CourseSystem
         {
             return _model.CreateUser(userId, password);
         }
-        public bool LogIn(string userId, string password)
+        public string LogIn(string userId, string password)
         {
-            return false;
+            string status = _model.LogIn(userId, password);
+            return status;
         }
     }
 }

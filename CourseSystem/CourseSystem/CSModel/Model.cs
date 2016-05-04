@@ -81,6 +81,35 @@ namespace CourseSystem
             //SQL = "INSERT INTO user VALUES(@userId,@password)";
             //SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, SQL, prams);
         }
+
+        public string LogIn(string userId, string password)
+        {
+            string WORK = "S"; //傳入執行動作進入ConnectDatabase
+            //搜尋此userId是否已註冊
+            string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
+            DataSet searchDs = ConnectDatabase(SQL, WORK);
+            string tableUserId = "", tableUserPwd = "";
+            foreach (DataTable searchDt in searchDs.Tables)
+            {
+                foreach (DataRow searchDr in searchDt.Rows)
+                {
+                    tableUserId = searchDr["UserId"].ToString();
+                    tableUserPwd = searchDr["Password"].ToString();
+                    if (tableUserId.Equals(userId))
+                    {
+                        if (tableUserPwd.Equals(password))
+                        {
+                            return "Success";
+                        }
+                        else
+                        {
+                            return "Wrong";
+                        }
+                    }
+                }
+            }
+            return "None";
+        }
     }
     
 }

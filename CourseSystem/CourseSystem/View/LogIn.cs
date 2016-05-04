@@ -32,9 +32,13 @@ namespace CourseSystem.View
             {
                 try
                 {
-                    if (_pmodel.LogIn(_userId, _userPwd) == false)
+                    if (_pmodel.LogIn(_userId, _userPwd).Equals("Wrong"))
                     {
                         MessageBox.Show(this, "使用者Id或密碼輸入錯誤!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (_pmodel.LogIn(_userId, _userPwd).Equals("None"))
+                    {
+                        MessageBox.Show(this, "查無此使用者Id!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
