@@ -11,7 +11,7 @@ namespace CourseSystem
     public class presentationModel
     {
         Model _model;
-        DataSet _userdata;
+        DataTable _userdata;
         public presentationModel(Model model) 
         {
             _model = model;
@@ -32,7 +32,18 @@ namespace CourseSystem
         {
             string status = _model.LogIn(userId, password);
             DataTable userdata = _model.FindUser(userId);
+            if (userdata.Rows.Count > 0) 
+            {
+                _userdata = userdata;
+            }
             return status;
+        }
+        /// <summary>
+        /// 取得當前使用者
+        /// </summary>
+        public string GetCurrentUser() 
+        {
+            return _userdata.Rows[0]["UserId"].ToString();
         }
 
     }

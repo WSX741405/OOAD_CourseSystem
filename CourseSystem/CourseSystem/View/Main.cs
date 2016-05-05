@@ -44,6 +44,7 @@ namespace CourseSystem
                 _computeGradeButton.Visible = true;
                 _registerButton.Visible = false;
                 _logoutButton.Visible = true;
+                _helloLabel.Text = "Hello!! "+_pmodel.GetCurrentUser();
             }
         }
 
