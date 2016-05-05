@@ -18,6 +18,22 @@ namespace CourseSystem
         }
 
         /// <summary>
+        /// 取得當前使用者
+        /// </summary>
+        public string GetCurrentUser()
+        {
+            return _userdata.Rows[0]["UserId"].ToString();
+        }
+
+        /// <summary>
+        /// 清除當前使用者
+        /// </summary>
+        public void ClearCurrentUser() 
+        {
+            _userdata.Clear();
+        }
+
+        /// <summary>
         /// 新增使用者
         /// </summary>
         public bool CreateUser(string userId,string password,string identity) 
@@ -37,13 +53,6 @@ namespace CourseSystem
                 _userdata = userdata;
             }
             return status;
-        }
-        /// <summary>
-        /// 取得當前使用者
-        /// </summary>
-        public string GetCurrentUser() 
-        {
-            return _userdata.Rows[0]["UserId"].ToString();
         }
 
     }

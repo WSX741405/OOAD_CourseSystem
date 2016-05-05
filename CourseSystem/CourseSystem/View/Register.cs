@@ -29,7 +29,7 @@ namespace CourseSystem.View
             _userId = _userIdTextBox.Text;
             _userPwd = _userPwdTextBox.Text;
             _userIdentity = _userComboBox.Text;
-            if (_userId != "" && _userId != null && _userPwd != "" && _userPwd != null)
+            if (_userId != "" && _userId != null && _userPwd != "" && _userPwd != null && _userIdentity != null && _userIdentity != "")
             {
                 try
                 {
@@ -51,7 +51,7 @@ namespace CourseSystem.View
             }
             else
             {
-                MessageBox.Show(this, "使用者Id或密碼不得為空!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "使用者Id、密碼或使用者身分不得為空!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
