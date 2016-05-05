@@ -87,6 +87,7 @@
             this._logoutButton.Text = "登出";
             this._logoutButton.UseVisualStyleBackColor = true;
             this._logoutButton.Visible = false;
+            this._logoutButton.Click += new System.EventHandler(this.ClickLogOutButton);
             // 
             // _helloLabel
             // 

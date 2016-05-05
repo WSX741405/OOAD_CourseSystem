@@ -44,6 +44,7 @@ namespace CourseSystem
                 _computeGradeButton.Visible = true;
                 _registerButton.Visible = false;
                 _logoutButton.Visible = true;
+                _loginButton.Visible = false;
                 _helloLabel.Text = "Hello!! "+_pmodel.GetCurrentUser();
             }
         }
@@ -52,6 +53,16 @@ namespace CourseSystem
         {
             Register _registerForm = new Register(_pmodel);
             _registerForm.ShowDialog();
+        }
+
+        private void ClickLogOutButton(object sender, EventArgs e)
+        {
+            _checkClassScheduleButton.Visible = false;
+            _computeGradeButton.Visible = false;
+            _registerButton.Visible = true;
+            _logoutButton.Visible = false;
+            _loginButton.Visible = true;
+            _helloLabel.Text = "";
         }
     }
 }
