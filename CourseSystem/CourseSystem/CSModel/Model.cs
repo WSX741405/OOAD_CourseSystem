@@ -16,7 +16,7 @@ namespace CourseSystem
         /// <summary>
         /// 連結資料庫
         /// </summary>
-        public DataTable ConnectDatabase(string SQLCommand, string work)
+        public DataTable ConnectDatabase(MySqlCommand cmd, string work)
         {
             MySql.Data.MySqlClient.MySqlConnection connection;
             string server = "127.0.0.1";
@@ -32,9 +32,8 @@ namespace CourseSystem
             {
                 connection.ConnectionString = connectionString;
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand(SQLCommand, connection);
+                cmd.Connection = connection;
                 cmd.ExecuteNonQuery();
-
                 if (!work.Equals("I"))
                 {
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -55,20 +54,27 @@ namespace CourseSystem
         /// </summary>
         public bool CreateUser(string userId, string password,string identity) 
         {
+            MySqlCommand cmd = new MySqlCommand();
             string WORK = "S"; //傳入執行動作進入ConnectDatabase
             //搜尋此userId是否已註冊
-            string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
-            DataTable searchDs = ConnectDatabase(SQL, WORK);
+            cmd.CommandText = "SELECT * FROM user WHERE `UserId` = @userId";
+            cmd.Parameters.AddWithValue("@userId", userId);
+            DataTable searchDs = ConnectDatabase(cmd, WORK);
             string tableUserId = "";
             foreach (DataRow searchDr in searchDs.Rows)
-                {
-                    tableUserId = searchDr["UserId"].ToString();
-                    if (tableUserId.Equals(userId)) return true;
-                }
+            {
+                tableUserId = searchDr["UserId"].ToString();
+                if (tableUserId.Equals(userId)) return true;
+            }
             //若沒註冊，進行註冊動作
-            SQL = "INSERT INTO `user`(`UserId`,`Password`,`userIdentity`) Values(" + userId + "," + password + ","+ identity +")";
+            cmd.CommandText =  "INSERT INTO user (`UserId`,`Password`,`userIdentity`) Values(@userId,@Pwd,@userIdentity)";
+            //必須先Clear 因為前面有新增過 @userId,重覆會出問題
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@userId", userId);
+            cmd.Parameters.AddWithValue("@Pwd", password);
+            cmd.Parameters.AddWithValue("@userIdentity", identity);
             WORK = "I";
-            DataTable insertDs = ConnectDatabase(SQL, WORK);
+            DataTable insertDs = ConnectDatabase(cmd, WORK);
             return false;
         }
 
@@ -77,10 +83,12 @@ namespace CourseSystem
         /// </summary>
         public string LogIn(string userId, string password)
         {
+            MySqlCommand cmd = new MySqlCommand();
             string WORK = "S"; //傳入執行動作進入ConnectDatabase
             //搜尋此userId是否已註冊
-            string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
-            DataTable searchDs = ConnectDatabase(SQL, WORK);
+            cmd.CommandText = "SELECT * FROM user WHERE `UserId` = @userId";
+            cmd.Parameters.Add("@userId", userId);
+            DataTable searchDs = ConnectDatabase(cmd, WORK);
             string tableUserId = "", tableUserPwd = "";
             foreach (DataRow searchDr in searchDs.Rows)
                 {
@@ -106,9 +114,11 @@ namespace CourseSystem
         /// </summary>
         public DataTable FindUser(string userId)
         {
-            string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM user WHERE `UserId` = @userId";
+            cmd.Parameters.Add("@userId", userId);
             string WORK = "S";
-            DataTable user = ConnectDatabase(SQL, WORK);
+            DataTable user = ConnectDatabase(cmd, WORK);
             return user; 
         }
     }
