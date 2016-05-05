@@ -21,8 +21,8 @@ namespace CourseSystem
             MySql.Data.MySqlClient.MySqlConnection connection;
             string server = "127.0.0.1";
             string database = "test";
-            string uid = "root";
-            string password = "";
+            string uid = "test";
+            string password = "test";
             string connectionString;
             DataTable dataset = new DataTable();
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
