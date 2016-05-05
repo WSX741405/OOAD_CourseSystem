@@ -9,20 +9,17 @@ using MySql.Data.MySqlClient;
 
 namespace CourseSystem
 {
-    class Model
+    public class Model
     {
-     //   private string SQL;
-     //   private string connectionString = "Server=127.0.0.1;Database=test;Uid=test;Pwd=test";
-        DataTable data;
-        DataTable userData;
+        DataSet _userdata;
         public Model() { }
         public DataSet ConnectDatabase(string SQLCommand, string work)
         {
             MySql.Data.MySqlClient.MySqlConnection connection;
             string server = "127.0.0.1";
             string database = "test";
-            string uid = "test";
-            string password = "test";
+            string uid = "root";
+            string password = "";
             string connectionString;
             DataSet dataset = new DataSet();
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +

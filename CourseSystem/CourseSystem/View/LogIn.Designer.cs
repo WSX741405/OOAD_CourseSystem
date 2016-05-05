@@ -67,6 +67,7 @@
             this._userPwdTextBox.Name = "_userPwdTextBox";
             this._userPwdTextBox.Size = new System.Drawing.Size(100, 22);
             this._userPwdTextBox.TabIndex = 3;
+            this._userPwdTextBox.TextChanged += new System.EventHandler(this.TextChangeduserPwdTextBox);
             // 
             // _logInOKButton
             // 

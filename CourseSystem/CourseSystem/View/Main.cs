@@ -15,8 +15,10 @@ namespace CourseSystem
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        presentationModel _pmodel;
+        public Form1(presentationModel pmodel)
         {
+            _pmodel = pmodel;
             InitializeComponent();
         }
 
@@ -34,7 +36,7 @@ namespace CourseSystem
 
         private void ClickLogInButton(object sender, EventArgs e)
         {
-            LogIn _logInForm = new LogIn();
+            LogIn _logInForm = new LogIn(_pmodel);
             _logInForm.ShowDialog();
             if (_logInForm.CheckSuccessOrNot() == true)
             {
@@ -47,7 +49,7 @@ namespace CourseSystem
 
         private void ClickRegisterButton(object sender, EventArgs e)
         {
-            Register _registerForm = new Register();
+            Register _registerForm = new Register(_pmodel);
             _registerForm.ShowDialog();
         }
     }

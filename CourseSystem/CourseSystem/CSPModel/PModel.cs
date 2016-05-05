@@ -8,13 +8,14 @@ using System.Data;
 
 namespace CourseSystem
 {
-    class PModel
+    public class presentationModel
     {
-        Model _model = new Model();
-        //public void InseretIntoDatabase(string SQLCommand) 
-        //{
-        //    _model.ConnectDatabase(SQLCommand);
-        //}
+        Model _model;
+
+        public presentationModel(Model model) 
+        {
+            _model = model;
+        }
 
         public bool CreateUser(string userId,string password) 
         {

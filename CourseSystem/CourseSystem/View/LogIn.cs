@@ -15,17 +15,15 @@ namespace CourseSystem.View
         private bool _success = false;
         private string _userId;
         private string _userPwd;
-        PModel _pmodel = new PModel();
-        public LogIn()
+        presentationModel _pmodel;
+        public LogIn(presentationModel Pmodel)
         {
+            _pmodel = Pmodel;
             InitializeComponent();
         }
 
         private void ClickLogInOKButton(object sender, EventArgs e)
         {
-            _userId = _userIdTextBox.Text;
-            _userPwd = _userPwdTextBox.Text;
-
             _userId = _userIdTextBox.Text;
             _userPwd = _userPwdTextBox.Text;
 
@@ -66,6 +64,11 @@ namespace CourseSystem.View
         public bool CheckSuccessOrNot()
         {
             return _success;
+        }
+
+        private void TextChangeduserPwdTextBox(object sender, EventArgs e)
+        {
+            _userPwdTextBox.PasswordChar = '*'; 
         }
     }
 }

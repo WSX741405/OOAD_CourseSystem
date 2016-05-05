@@ -14,7 +14,7 @@ namespace CourseSystem.View
 {
     public partial class PersonalClassSchedule : Form
     {
-        PModel _pmodel = new PModel();
+        presentationModel _pmodel;
         private string _studentId;
         private string _connectString;
         private string SQL;

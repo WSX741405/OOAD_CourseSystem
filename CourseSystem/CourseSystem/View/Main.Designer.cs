@@ -33,11 +33,12 @@
             this._registerButton = new System.Windows.Forms.Button();
             this._loginButton = new System.Windows.Forms.Button();
             this._logoutButton = new System.Windows.Forms.Button();
+            this._helloLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
             // 
-            this._checkClassScheduleButton.Location = new System.Drawing.Point(651, 36);
+            this._checkClassScheduleButton.Location = new System.Drawing.Point(33, 70);
             this._checkClassScheduleButton.Name = "_checkClassScheduleButton";
             this._checkClassScheduleButton.Size = new System.Drawing.Size(75, 23);
             this._checkClassScheduleButton.TabIndex = 0;
@@ -48,7 +49,7 @@
             // 
             // _computeGradeButton
             // 
-            this._computeGradeButton.Location = new System.Drawing.Point(742, 36);
+            this._computeGradeButton.Location = new System.Drawing.Point(126, 70);
             this._computeGradeButton.Name = "_computeGradeButton";
             this._computeGradeButton.Size = new System.Drawing.Size(75, 23);
             this._computeGradeButton.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             // _registerButton
             // 
-            this._registerButton.Location = new System.Drawing.Point(33, 36);
+            this._registerButton.Location = new System.Drawing.Point(462, 35);
             this._registerButton.Name = "_registerButton";
             this._registerButton.Size = new System.Drawing.Size(75, 23);
             this._registerButton.TabIndex = 2;
@@ -69,7 +70,7 @@
             // 
             // _loginButton
             // 
-            this._loginButton.Location = new System.Drawing.Point(143, 35);
+            this._loginButton.Location = new System.Drawing.Point(557, 35);
             this._loginButton.Name = "_loginButton";
             this._loginButton.Size = new System.Drawing.Size(75, 23);
             this._loginButton.TabIndex = 3;
@@ -79,7 +80,7 @@
             // 
             // _logoutButton
             // 
-            this._logoutButton.Location = new System.Drawing.Point(143, 36);
+            this._logoutButton.Location = new System.Drawing.Point(557, 35);
             this._logoutButton.Name = "_logoutButton";
             this._logoutButton.Size = new System.Drawing.Size(75, 23);
             this._logoutButton.TabIndex = 4;
@@ -87,11 +88,20 @@
             this._logoutButton.UseVisualStyleBackColor = true;
             this._logoutButton.Visible = false;
             // 
+            // _helloLabel
+            // 
+            this._helloLabel.AutoSize = true;
+            this._helloLabel.Location = new System.Drawing.Point(31, 13);
+            this._helloLabel.Name = "_helloLabel";
+            this._helloLabel.Size = new System.Drawing.Size(0, 12);
+            this._helloLabel.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 373);
+            this.ClientSize = new System.Drawing.Size(790, 320);
+            this.Controls.Add(this._helloLabel);
             this.Controls.Add(this._logoutButton);
             this.Controls.Add(this._loginButton);
             this.Controls.Add(this._registerButton);
@@ -100,6 +110,7 @@
             this.Name = "Form1";
             this.Text = "課程系統";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,6 +121,7 @@
         private System.Windows.Forms.Button _registerButton;
         private System.Windows.Forms.Button _loginButton;
         private System.Windows.Forms.Button _logoutButton;
+        private System.Windows.Forms.Label _helloLabel;
     }
 }
 
