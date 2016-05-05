@@ -16,6 +16,7 @@ namespace CourseSystem.View
         private bool _success = false;
         private string _userId;
         private string _userPwd;
+        private string _userIdentity;
         presentationModel _pmodel;
         public Register(presentationModel pModel)
         {
@@ -27,12 +28,12 @@ namespace CourseSystem.View
         {
             _userId = _userIdTextBox.Text;
             _userPwd = _userPwdTextBox.Text;
-
+            _userIdentity = _userComboBox.Text;
             if (_userId != "" && _userId != null && _userPwd != "" && _userPwd != null)
             {
                 try
                 {
-                    if (_pmodel.CreateUser(_userId, _userPwd) == true)
+                    if (_pmodel.CreateUser(_userId, _userPwd,_userIdentity) == true)
                     {
                         MessageBox.Show(this, "已存在的使用者Id!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }

@@ -53,7 +53,7 @@ namespace CourseSystem
         /// <summary>
         /// 新增user
         /// </summary>
-        public bool CreateUser(string userId, string password) 
+        public bool CreateUser(string userId, string password,string identity) 
         {
             string WORK = "S"; //傳入執行動作進入ConnectDatabase
             //搜尋此userId是否已註冊
@@ -66,20 +66,10 @@ namespace CourseSystem
                     if (tableUserId.Equals(userId)) return true;
                 }
             //若沒註冊，進行註冊動作
-            SQL = "INSERT INTO `user`(`UserId`,`Password`) Values("+ userId+","+ password+")";
+            SQL = "INSERT INTO `user`(`UserId`,`Password`,`userIdentity`) Values(" + userId + "," + password + ","+ identity +")";
             WORK = "I";
             DataTable insertDs = ConnectDatabase(SQL, WORK);
             return false;
-            //string test = ds.Table[0].Rows[0]["UserId"].ToString();
-            //SqlParameter[] prams = {
-            //    SqlHelper.MakeInParam("@userId", SqlDbType.VarChar, 999, userId)
-            //};
-            //SQL = "SELECT * FROM user WHERE UserId = @userId";
-            //data = SqlHelper.ExecuteDataTable(connectionString, CommandType.Text, SQL, prams);
-            //if (data.Rows.Count > 0) return true;
-
-            //SQL = "INSERT INTO user VALUES(@userId,@password)";
-            //SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, SQL, prams);
         }
 
         /// <summary>

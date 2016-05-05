@@ -16,13 +16,13 @@ namespace CourseSystem
         {
             _model = model;
         }
+
         /// <summary>
         /// 新增使用者
         /// </summary>
-
-        public bool CreateUser(string userId,string password) 
+        public bool CreateUser(string userId,string password,string identity) 
         {
-            return _model.CreateUser(userId, password);
+            return _model.CreateUser(userId, password,identity);
         }
 
         /// <summary>

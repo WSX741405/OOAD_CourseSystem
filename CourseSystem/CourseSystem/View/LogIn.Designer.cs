@@ -48,7 +48,7 @@
             // _pwdLabel
             // 
             this._pwdLabel.AutoSize = true;
-            this._pwdLabel.Location = new System.Drawing.Point(49, 124);
+            this._pwdLabel.Location = new System.Drawing.Point(49, 105);
             this._pwdLabel.Name = "_pwdLabel";
             this._pwdLabel.Size = new System.Drawing.Size(41, 12);
             this._pwdLabel.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             // _userPwdTextBox
             // 
-            this._userPwdTextBox.Location = new System.Drawing.Point(129, 121);
+            this._userPwdTextBox.Location = new System.Drawing.Point(129, 105);
             this._userPwdTextBox.Name = "_userPwdTextBox";
             this._userPwdTextBox.Size = new System.Drawing.Size(100, 22);
             this._userPwdTextBox.TabIndex = 3;
@@ -71,7 +71,7 @@
             // 
             // _logInOKButton
             // 
-            this._logInOKButton.Location = new System.Drawing.Point(51, 167);
+            this._logInOKButton.Location = new System.Drawing.Point(51, 185);
             this._logInOKButton.Name = "_logInOKButton";
             this._logInOKButton.Size = new System.Drawing.Size(75, 23);
             this._logInOKButton.TabIndex = 4;
@@ -81,7 +81,7 @@
             // 
             // _logInCancelButton
             // 
-            this._logInCancelButton.Location = new System.Drawing.Point(154, 167);
+            this._logInCancelButton.Location = new System.Drawing.Point(154, 185);
             this._logInCancelButton.Name = "_logInCancelButton";
             this._logInCancelButton.Size = new System.Drawing.Size(75, 23);
             this._logInCancelButton.TabIndex = 5;

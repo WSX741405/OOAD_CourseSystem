@@ -34,6 +34,8 @@
             this._pwdLabel = new System.Windows.Forms.Label();
             this._registerOKButton = new System.Windows.Forms.Button();
             this._registerCancelButton = new System.Windows.Forms.Button();
+            this._userIdentityLabel = new System.Windows.Forms.Label();
+            this._userComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // _userIdTextBox
@@ -45,7 +47,7 @@
             // 
             // _userPwdTextBox
             // 
-            this._userPwdTextBox.Location = new System.Drawing.Point(127, 129);
+            this._userPwdTextBox.Location = new System.Drawing.Point(127, 111);
             this._userPwdTextBox.Name = "_userPwdTextBox";
             this._userPwdTextBox.Size = new System.Drawing.Size(100, 22);
             this._userPwdTextBox.TabIndex = 1;
@@ -63,7 +65,7 @@
             // _pwdLabel
             // 
             this._pwdLabel.AutoSize = true;
-            this._pwdLabel.Location = new System.Drawing.Point(46, 132);
+            this._pwdLabel.Location = new System.Drawing.Point(46, 114);
             this._pwdLabel.Name = "_pwdLabel";
             this._pwdLabel.Size = new System.Drawing.Size(41, 12);
             this._pwdLabel.TabIndex = 3;
@@ -71,7 +73,7 @@
             // 
             // _registerOKButton
             // 
-            this._registerOKButton.Location = new System.Drawing.Point(48, 175);
+            this._registerOKButton.Location = new System.Drawing.Point(48, 187);
             this._registerOKButton.Name = "_registerOKButton";
             this._registerOKButton.Size = new System.Drawing.Size(75, 23);
             this._registerOKButton.TabIndex = 4;
@@ -81,7 +83,7 @@
             // 
             // _registerCancelButton
             // 
-            this._registerCancelButton.Location = new System.Drawing.Point(152, 175);
+            this._registerCancelButton.Location = new System.Drawing.Point(152, 187);
             this._registerCancelButton.Name = "_registerCancelButton";
             this._registerCancelButton.Size = new System.Drawing.Size(75, 23);
             this._registerCancelButton.TabIndex = 5;
@@ -89,11 +91,34 @@
             this._registerCancelButton.UseVisualStyleBackColor = true;
             this._registerCancelButton.Click += new System.EventHandler(this.ClickRegisterCancelButton);
             // 
+            // _userIdentityLabel
+            // 
+            this._userIdentityLabel.AutoSize = true;
+            this._userIdentityLabel.Location = new System.Drawing.Point(46, 151);
+            this._userIdentityLabel.Name = "_userIdentityLabel";
+            this._userIdentityLabel.Size = new System.Drawing.Size(77, 12);
+            this._userIdentityLabel.TabIndex = 6;
+            this._userIdentityLabel.Text = "使用者身分：";
+            // 
+            // _userComboBox
+            // 
+            this._userComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._userComboBox.FormattingEnabled = true;
+            this._userComboBox.Items.AddRange(new object[] {
+            "學生",
+            "教授"});
+            this._userComboBox.Location = new System.Drawing.Point(127, 148);
+            this._userComboBox.Name = "_userComboBox";
+            this._userComboBox.Size = new System.Drawing.Size(121, 20);
+            this._userComboBox.TabIndex = 7;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(276, 263);
+            this.Controls.Add(this._userComboBox);
+            this.Controls.Add(this._userIdentityLabel);
             this.Controls.Add(this._registerCancelButton);
             this.Controls.Add(this._registerOKButton);
             this.Controls.Add(this._pwdLabel);
@@ -115,5 +140,7 @@
         private System.Windows.Forms.Label _pwdLabel;
         private System.Windows.Forms.Button _registerOKButton;
         private System.Windows.Forms.Button _registerCancelButton;
+        private System.Windows.Forms.Label _userIdentityLabel;
+        private System.Windows.Forms.ComboBox _userComboBox;
     }
 }
