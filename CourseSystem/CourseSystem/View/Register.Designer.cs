@@ -105,8 +105,8 @@
             this._userComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._userComboBox.FormattingEnabled = true;
             this._userComboBox.Items.AddRange(new object[] {
-            "學生",
-            "教授"});
+            "Student",
+            "Professor"});
             this._userComboBox.Location = new System.Drawing.Point(127, 148);
             this._userComboBox.Name = "_userComboBox";
             this._userComboBox.Size = new System.Drawing.Size(121, 20);
