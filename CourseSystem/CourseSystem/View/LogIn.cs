@@ -68,7 +68,7 @@ namespace CourseSystem.View
 
         private void TextChangeduserPwdTextBox(object sender, EventArgs e)
         {
-            _userPwdTextBox.PasswordChar = '*'; 
+            _userPwdTextBox.PasswordChar = '*';  
         }
     }
 }

@@ -11,9 +11,12 @@ namespace CourseSystem
 {
     public class Model
     {
-        DataSet _userdata;
         public Model() { }
-        public DataSet ConnectDatabase(string SQLCommand, string work)
+
+        /// <summary>
+        /// 連結資料庫
+        /// </summary>
+        public DataTable ConnectDatabase(string SQLCommand, string work)
         {
             MySql.Data.MySqlClient.MySqlConnection connection;
             string server = "127.0.0.1";
@@ -21,7 +24,7 @@ namespace CourseSystem
             string uid = "root";
             string password = "";
             string connectionString;
-            DataSet dataset = new DataSet();
+            DataTable dataset = new DataTable();
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
             connection = new MySqlConnection(connectionString);
@@ -47,25 +50,25 @@ namespace CourseSystem
             return dataset;
         }
 
+        /// <summary>
+        /// 新增user
+        /// </summary>
         public bool CreateUser(string userId, string password) 
         {
             string WORK = "S"; //傳入執行動作進入ConnectDatabase
             //搜尋此userId是否已註冊
             string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
-            DataSet searchDs = ConnectDatabase(SQL,WORK);
+            DataTable searchDs = ConnectDatabase(SQL, WORK);
             string tableUserId = "";
-            foreach (DataTable searchDt in searchDs.Tables)
-            {
-                foreach (DataRow searchDr in searchDt.Rows)
+            foreach (DataRow searchDr in searchDs.Rows)
                 {
                     tableUserId = searchDr["UserId"].ToString();
                     if (tableUserId.Equals(userId)) return true;
                 }
-            }
             //若沒註冊，進行註冊動作
             SQL = "INSERT INTO `user`(`UserId`,`Password`) Values("+ userId+","+ password+")";
             WORK = "I";
-            DataSet insertDs = ConnectDatabase(SQL,WORK);
+            DataTable insertDs = ConnectDatabase(SQL, WORK);
             return false;
             //string test = ds.Table[0].Rows[0]["UserId"].ToString();
             //SqlParameter[] prams = {
@@ -79,16 +82,17 @@ namespace CourseSystem
             //SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, SQL, prams);
         }
 
+        /// <summary>
+        /// 登入
+        /// </summary>
         public string LogIn(string userId, string password)
         {
             string WORK = "S"; //傳入執行動作進入ConnectDatabase
             //搜尋此userId是否已註冊
             string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
-            DataSet searchDs = ConnectDatabase(SQL, WORK);
+            DataTable searchDs = ConnectDatabase(SQL, WORK);
             string tableUserId = "", tableUserPwd = "";
-            foreach (DataTable searchDt in searchDs.Tables)
-            {
-                foreach (DataRow searchDr in searchDt.Rows)
+            foreach (DataRow searchDr in searchDs.Rows)
                 {
                     tableUserId = searchDr["UserId"].ToString();
                     tableUserPwd = searchDr["Password"].ToString();
@@ -104,8 +108,18 @@ namespace CourseSystem
                         }
                     }
                 }
-            }
             return "None";
+        }
+
+        /// <summary>
+        /// 搜尋使用者
+        /// </summary>
+        public DataTable FindUser(string userId)
+        {
+            string SQL = "SELECT * FROM user WHERE `UserId` =" + userId;
+            string WORK = "S";
+            DataTable user = ConnectDatabase(SQL, WORK);
+            return user; 
         }
     }
 }
