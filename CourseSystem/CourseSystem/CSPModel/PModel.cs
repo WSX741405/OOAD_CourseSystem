@@ -58,14 +58,23 @@ namespace CourseSystem
         }
 
         /// <summary>
-        /// 學生查詢課表
+        /// 查詢課程連結時間
         /// </summary>
-        public DataTable getCourse(string studentId) 
+        public List<int> getUserMapCourse(string studentId) 
         {
-            DataTable course = new DataTable();
-            _courseModel.getCourse(studentId);
-            return course;
+            List<int> courseList = new List<int>();
+            courseList = _courseModel.getUserMapCourse(studentId);
+            return courseList;
         }
 
+        /// <summary>
+        /// 查詢時間表
+        /// </summary>
+        public DataTable getTimeslice(int t_id) 
+        {
+            DataTable timeslice = new DataTable();
+            timeslice= _courseModel.getTimeslice(t_id);
+            return timeslice;
+        }
     }
 }

@@ -14,9 +14,10 @@ namespace CourseSystem.View
 {
     public partial class PersonalClassSchedule : Form
     {
-        DataTable _courseTable;
+        List<int>_courseList = new List<int>();
+        DataTable _timeslice;
         presentationModel _pmodel;
-        private string _studentId;
+        public int count=0;
         private string SQL;
         public PersonalClassSchedule(presentationModel pmodel)
         {
@@ -26,14 +27,25 @@ namespace CourseSystem.View
 
         private void ClickCheckScheduleButton(object sender, EventArgs e)
         {
-            _courseTable.Clear();
-            _courseTable=_pmodel.getCourse(_idTextBox.Text);
-            RefreshClassSchedule();
+            if (_courseList != null) 
+            {
+                _courseList.Clear();
+                count = 0;
+            }
+            _courseList = _pmodel.getUserMapCourse(_idTextBox.Text);
+            _addidLabel.Text = _courseList[0].ToString();
+            //count = _courseTable.Rows.Count;
+            //for (int i = 1; i <= count; i++)
+            //{
+            //    _timeslice= _pmodel.getTimeslice(int.Parse(_courseTable.Rows[i].ToString()));
+            //}
+            //_addidLabel.Text = _timeslice.Rows[0].ToString();
+            //RefreshClassSchedule();
         }
 
         private void RefreshClassSchedule()
         {
-            _classScheduleDataGridView.Rows.Clear();
+                _classScheduleDataGridView.Rows.Clear();
         }
 
     }

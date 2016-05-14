@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
-using MySql.Data.MySqlClient;;
+using MySql.Data.MySqlClient;
 
 namespace CourseSystem
 {
     public class Course_Model
     {
         public Course_Model() { }
-        List<Course> _course = new List<Course>();
+        public List<Course> _course = new List<Course>();
 
         public DataTable ConnectDatabase(MySqlCommand cmd, string work)
         {
@@ -47,29 +47,47 @@ namespace CourseSystem
             return dataset;
         }
 
-        /// <summary>
-        /// 教授新增課程 尚未完成
-        /// </summary>
-        public void addCourseForProfessor(string courseName,int courseId)
-        {
-            Course course = new Course();
-            course._courseId=courseId;
-            course._courseName=courseName;
-        }
+        ///// <summary>
+        ///// 教授新增課程 尚未完成
+        ///// </summary>
+        //public void addCourseForProfessor(string courseName,int courseId)
+        //{
+        //    Course course = new Course();
+        //    course._courseId=courseId;
+        //    course._courseName=courseName;
+        //}
 
         /// <summary>
-        /// 學生查詢課程
+        /// 由學生ID查詢該名學生的課表之課程ID
         /// </summary>
-        public DataTable getCourse(string studentId)
+        public List<int> getUserMapCourse(string studentId)
         {
+            List<int>courseList=new List<int>();
             DataTable course = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT * FROM coursemaptimeslice WHERE `s_Id` = @courseId";
+            cmd.CommandText = "SELECT * FROM usermapcourse WHERE `s_Id` = @studentId";
             cmd.Parameters.AddWithValue("@s_Id", studentId);
             string WORK = "S";
             course=ConnectDatabase(cmd,WORK);
+            foreach(DataRow da in course.Rows)
+            {
+                courseList.Add(int.Parse(da.ToString()));
+            }
+            return courseList;
+        }
 
-            return course;
+        /// <summary>
+        /// 由時刻id查詢課程時刻
+        /// </summary>
+        public DataTable getTimeslice(int t_id)
+        {
+            DataTable timeslice = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM timeslice WHERE `id` = @t_id";
+            cmd.Parameters.AddWithValue("@s_Id", t_id);
+            string WORK = "S";
+            ConnectDatabase(cmd, WORK);
+            return timeslice;
         }
     }
 }
