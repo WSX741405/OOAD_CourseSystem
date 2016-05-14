@@ -80,13 +80,20 @@ namespace CourseSystem
         /// <summary>
         /// 查詢時間表BytimesliceId
         /// </summary>
-        public DataTable getTimesliceByTimesliceId(int t_id) 
+        public List<int> getTimesliceByTimesliceId(int t_id) 
         {
-            DataTable timesliceData = new DataTable();
-            _courseModel.getTimesliceByTimesliceId(t_id);
+            List<int> timesliceData = new List<int>();
+            timesliceData = _courseModel.getTimesliceByTimesliceId(t_id);
             return timesliceData;
         }
 
-
+        /// <summary>
+        /// 由課程ID查詢課程名稱
+        /// </summary>
+        public string getCourseNameByCourseId(int c_id)
+        {
+            string courseName = _courseModel.getCourseNameByCourseId(c_id);
+            return courseName;
+        }
     }
 }

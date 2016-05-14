@@ -84,10 +84,11 @@ namespace CourseSystem
             List<int> timesliceList = new List<int>();
             DataTable timesliceData = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT * FROM coursemaptimeslice WHERE `id` = @c_id";
+            cmd.CommandText = "SELECT * FROM coursemaptimeslice WHERE `c_id` = @c_id";
             cmd.Parameters.AddWithValue("@c_Id", c_id);
             string WORK = "S";
             timesliceData = ConnectDatabase(cmd, WORK);
+            Console.WriteLine("c_id" + c_id.ToString() + timesliceData.Rows);
             foreach (DataRow da in timesliceData.Rows) 
             {
                 timesliceList.Add(int.Parse(da[1].ToString()));
@@ -98,15 +99,36 @@ namespace CourseSystem
         /// <summary>
         /// 由課程時刻ID查詢上課日期與時間
         /// </summary>
-        public DataTable getTimesliceByTimesliceId(int t_id) 
+        public List<int> getTimesliceByTimesliceId(int t_id) 
         {
+            List<int> timeslice = new List<int>();
             DataTable timesliceData = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "SELECT * FROM timeslice WHERE `id` = @t_id";
             cmd.Parameters.AddWithValue("@t_id", t_id);
             string WORK = "S";
             timesliceData = ConnectDatabase(cmd, WORK);
-            return timesliceData;
+            foreach (DataRow da in timesliceData.Rows) 
+            {
+                timeslice.Add(int.Parse(da[1].ToString()));
+                timeslice.Add(int.Parse(da[2].ToString()));
+            }
+            return timeslice;
+        }
+
+        /// <summary>
+        /// 由課程ID查詢課程名稱
+        /// </summary>
+        public string getCourseNameByCourseId(int c_id) 
+        {
+            DataTable courseData = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM course WHERE `CourseId` = @c_id";
+            cmd.Parameters.AddWithValue("@c_id", c_id);
+            string WORK = "S";
+            courseData = ConnectDatabase(cmd, WORK);
+            string courseName = courseData.Rows[0][1].ToString();
+            return courseName;
         }
     }
 }

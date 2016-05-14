@@ -14,18 +14,32 @@ namespace CourseSystem.View
 {
     public partial class PersonalClassSchedule : Form
     {
-        private List<int>_courseList = new List<int>();
+        private List<int> _courseList = new List<int>();
         private List<int> _timesliceList = new List<int>();
         presentationModel _pmodel;
         public PersonalClassSchedule(presentationModel pmodel)
         {
             _pmodel = pmodel;
             InitializeComponent();
+            InitializeGridView();
+        }
+
+        private void InitializeGridView()
+        {
+            // 13 row's
+            int startTime = 8;
+            for (int counter = 0; counter < 13; counter++)
+            {
+                string content = counter != 4 ? ":10 - " : ":00 - ";
+                _classScheduleDataGridView.Rows.Add();
+                _classScheduleDataGridView.Rows[counter].Cells[0].Value = (startTime + counter).ToString() + content + (startTime + counter + 1).ToString() + ":00";
+            }
+
         }
 
         private void ClickCheckScheduleButton(object sender, EventArgs e)
         {
-            if (_courseList != null) 
+            if (_courseList != null)
             {
                 _courseList.Clear();
             }
@@ -36,20 +50,20 @@ namespace CourseSystem.View
 
         private void RefreshClassSchedule()
         {
-                _classScheduleDataGridView.Rows.Clear();
-                for (int i = 0; i < _courseList.Count(); i++)  //學生所有修課之課程ID
+            _classScheduleDataGridView.Rows.Clear();
+            InitializeGridView();
+            for (int i = 0; i < _courseList.Count(); i++)  //學生所有修課之課程ID
+            {
+                string courseName =_pmodel.getCourseNameByCourseId(_courseList[i]);
+                _timesliceList = _pmodel.getTimesliceByCourseId(_courseList[i]);
+                for (int j = 0; j < _timesliceList.Count(); j++)  //該課程之上課時程數
                 {
-                    string courseName;
-                    _timesliceList = _pmodel.getTimesliceByCourseId(_courseList[i]);
-                    for (int j = 0; j < _timesliceList.Count(); j++)  //該課程之上課時程數
-                    {
-                        DataTable timesliceData = _pmodel.getTimesliceByTimesliceId(_timesliceList[i]);
-                        foreach (DataRow time in timesliceData.Rows) 
-                        {
-                            //_classScheduleDataGridView.Rows[time[2]].Cells[time[1]].Value.ToString() = "1"; 
-                        }
-                    }
+                    List<int> timesliceData = _pmodel.getTimesliceByTimesliceId(_timesliceList[j]);
+                    int d = timesliceData[0];
+                    int t = timesliceData[1] - 1;   // 預設8點為 1 GridView 最上面row(8點)為0 所以-1
+                    _classScheduleDataGridView.Rows[t].Cells[d].Value = courseName; 
                 }
+            }
         }
 
     }
