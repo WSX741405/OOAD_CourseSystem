@@ -8,5 +8,9 @@ namespace CourseSystem
 {
     class Course_Model
     {
+        public Course_Model() { }
+
+        Course course = new Course();
+        List<Course> _course = new List<Course>();
     }
 }

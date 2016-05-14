@@ -24,7 +24,7 @@ namespace CourseSystem
 
         private void ClickCheckClassScheduleButton(object sender, EventArgs e)
         {
-            PersonalClassSchedule classSchedule = new PersonalClassSchedule();
+            PersonalClassSchedule classSchedule = new PersonalClassSchedule(_pmodel);
             classSchedule.ShowDialog();
         }
 

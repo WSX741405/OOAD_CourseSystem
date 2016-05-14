@@ -10,11 +10,13 @@ namespace CourseSystem
 {
     public class presentationModel
     {
+        Course_Model _courseModel;
         Model _model;
         DataTable _userdata;
-        public presentationModel(Model model) 
+        public presentationModel(Model model,Course_Model courseModel) 
         {
             _model = model;
+            _courseModel = courseModel;
         }
 
         /// <summary>

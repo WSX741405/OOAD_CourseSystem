@@ -16,23 +16,17 @@ namespace CourseSystem.View
     {
         presentationModel _pmodel;
         private string _studentId;
-        private string _connectString;
         private string SQL;
-        public PersonalClassSchedule()
+        public PersonalClassSchedule(presentationModel pmodel)
         {
+            _pmodel = pmodel;
             InitializeComponent();
-            _connectString = "SERVER=spring-ooad.ddns.net; DATABASE=ooad-cs; UID=ooad-cs; PASSWORD=ooad-cs;";
         }
 
         private void ClickCheckScheduleButton(object sender, EventArgs e)
         {
-            //String SQLCommand = "insert into  test (a,b,c) values('1','12','1234')";
-            //_pmodel.InseretIntoDatabase(SQLCommand);
-            //getData();
-            /*_currentIdLabel.Text = "學號：" + _idTextBox.Text;
-            string[] recordContent = { "8:10~9:00", "微積分", "", "", "", "", "" };
-            ClearClassSchedule();   //  clear all record in schedule
-            _classScheduleDataGridView.Rows.Add(recordContent);*/
+            ClearClassSchedule();
+            
         }
 
         private void ClearClassSchedule()
@@ -40,10 +34,5 @@ namespace CourseSystem.View
             _classScheduleDataGridView.Rows.Clear();
         }
 
-        private void getData ()
-        {
-            string SQL = "SELECT * FROM Projects";
-            _classScheduleDataGridView.DataSource= SqlHelper.ExecuteDataTable(_connectString, CommandType.Text, SQL);
-        }
     }
 }

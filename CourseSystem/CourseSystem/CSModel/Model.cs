@@ -87,7 +87,7 @@ namespace CourseSystem
             string WORK = "S"; //傳入執行動作進入ConnectDatabase
             //搜尋此userId是否已註冊
             cmd.CommandText = "SELECT * FROM user WHERE `UserId` = @userId";
-            cmd.Parameters.Add("@userId", userId);
+            cmd.Parameters.AddWithValue("@userId", userId);
             DataTable searchDs = ConnectDatabase(cmd, WORK);
             string tableUserId = "", tableUserPwd = "";
             foreach (DataRow searchDr in searchDs.Rows)
@@ -116,7 +116,7 @@ namespace CourseSystem
         {
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "SELECT * FROM user WHERE `UserId` = @userId";
-            cmd.Parameters.Add("@userId", userId);
+            cmd.Parameters.AddWithValue("@userId", userId);
             string WORK = "S";
             DataTable user = ConnectDatabase(cmd, WORK);
             return user; 
