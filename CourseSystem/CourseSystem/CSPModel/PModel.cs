@@ -68,13 +68,25 @@ namespace CourseSystem
         }
 
         /// <summary>
-        /// 查詢時間表
+        /// 查詢時間表BycourseId
         /// </summary>
-        public DataTable getTimeslice(int t_id) 
+        public List<int> getTimesliceByCourseId(int t_id) 
         {
-            DataTable timeslice = new DataTable();
-            timeslice= _courseModel.getTimeslice(t_id);
+            List<int> timeslice = new List<int>();
+            timeslice = _courseModel.getTimesliceByCourseId(t_id);
             return timeslice;
         }
+
+        /// <summary>
+        /// 查詢時間表BytimesliceId
+        /// </summary>
+        public DataTable getTimesliceByTimesliceId(int t_id) 
+        {
+            DataTable timesliceData = new DataTable();
+            _courseModel.getTimesliceByTimesliceId(t_id);
+            return timesliceData;
+        }
+
+
     }
 }

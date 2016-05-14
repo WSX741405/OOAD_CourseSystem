@@ -66,28 +66,47 @@ namespace CourseSystem
             DataTable course = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "SELECT * FROM usermapcourse WHERE `s_Id` = @studentId";
-            cmd.Parameters.AddWithValue("@s_Id", studentId);
+            cmd.Parameters.AddWithValue("@studentId", studentId);
             string WORK = "S";
             course=ConnectDatabase(cmd,WORK);
             foreach(DataRow da in course.Rows)
             {
-                courseList.Add(int.Parse(da.ToString()));
+                courseList.Add(int.Parse(da[2].ToString()));
             }
             return courseList;
         }
 
         /// <summary>
-        /// 由時刻id查詢課程時刻
+        /// 由課程id查詢課程時刻id
         /// </summary>
-        public DataTable getTimeslice(int t_id)
+        public List<int> getTimesliceByCourseId(int c_id)
         {
-            DataTable timeslice = new DataTable();
+            List<int> timesliceList = new List<int>();
+            DataTable timesliceData = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM coursemaptimeslice WHERE `id` = @c_id";
+            cmd.Parameters.AddWithValue("@c_Id", c_id);
+            string WORK = "S";
+            timesliceData = ConnectDatabase(cmd, WORK);
+            foreach (DataRow da in timesliceData.Rows) 
+            {
+                timesliceList.Add(int.Parse(da[1].ToString()));
+            }
+            return timesliceList;
+        }
+
+        /// <summary>
+        /// 由課程時刻ID查詢上課日期與時間
+        /// </summary>
+        public DataTable getTimesliceByTimesliceId(int t_id) 
+        {
+            DataTable timesliceData = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "SELECT * FROM timeslice WHERE `id` = @t_id";
-            cmd.Parameters.AddWithValue("@s_Id", t_id);
+            cmd.Parameters.AddWithValue("@t_id", t_id);
             string WORK = "S";
-            ConnectDatabase(cmd, WORK);
-            return timeslice;
+            timesliceData = ConnectDatabase(cmd, WORK);
+            return timesliceData;
         }
     }
 }

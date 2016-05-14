@@ -14,11 +14,9 @@ namespace CourseSystem.View
 {
     public partial class PersonalClassSchedule : Form
     {
-        List<int>_courseList = new List<int>();
-        DataTable _timeslice;
+        private List<int>_courseList = new List<int>();
+        private List<int> _timesliceList = new List<int>();
         presentationModel _pmodel;
-        public int count=0;
-        private string SQL;
         public PersonalClassSchedule(presentationModel pmodel)
         {
             _pmodel = pmodel;
@@ -30,22 +28,28 @@ namespace CourseSystem.View
             if (_courseList != null) 
             {
                 _courseList.Clear();
-                count = 0;
             }
             _courseList = _pmodel.getUserMapCourse(_idTextBox.Text);
-            _addidLabel.Text = _courseList[0].ToString();
-            //count = _courseTable.Rows.Count;
-            //for (int i = 1; i <= count; i++)
-            //{
-            //    _timeslice= _pmodel.getTimeslice(int.Parse(_courseTable.Rows[i].ToString()));
-            //}
-            //_addidLabel.Text = _timeslice.Rows[0].ToString();
-            //RefreshClassSchedule();
+
+            RefreshClassSchedule();
         }
 
         private void RefreshClassSchedule()
         {
                 _classScheduleDataGridView.Rows.Clear();
+                for (int i = 0; i < _courseList.Count(); i++)  //學生所有修課之課程ID
+                {
+                    string courseName;
+                    _timesliceList = _pmodel.getTimesliceByCourseId(_courseList[i]);
+                    for (int j = 0; j < _timesliceList.Count(); j++)  //該課程之上課時程數
+                    {
+                        DataTable timesliceData = _pmodel.getTimesliceByTimesliceId(_timesliceList[i]);
+                        foreach (DataRow time in timesliceData.Rows) 
+                        {
+                            //_classScheduleDataGridView.Rows[time[2]].Cells[time[1]].Value.ToString() = "1"; 
+                        }
+                    }
+                }
         }
 
     }
