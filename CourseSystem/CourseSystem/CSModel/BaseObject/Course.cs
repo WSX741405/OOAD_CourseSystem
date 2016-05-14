@@ -8,11 +8,9 @@ namespace CourseSystem
 {
     public class Course
     {
-        private string  _courseName;
-        private string _courseId;
-        private TimeSlice _timeslice = new TimeSlice();
-        private List<TimeSlice> _courseOfferTime = new List<TimeSlice>();
-
-
+        public string  _courseName;
+        public int _courseId;
+        public TimeSlice _timeslice = new TimeSlice();
+        public List<TimeSlice> _courseOfferTime = new List<TimeSlice>();
     }
 }

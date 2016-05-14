@@ -14,6 +14,7 @@ namespace CourseSystem.View
 {
     public partial class PersonalClassSchedule : Form
     {
+        DataTable _courseTable;
         presentationModel _pmodel;
         private string _studentId;
         private string SQL;
@@ -25,11 +26,12 @@ namespace CourseSystem.View
 
         private void ClickCheckScheduleButton(object sender, EventArgs e)
         {
-            ClearClassSchedule();
-            
+            _courseTable.Clear();
+            _courseTable=_pmodel.getCourse(_idTextBox.Text);
+            RefreshClassSchedule();
         }
 
-        private void ClearClassSchedule()
+        private void RefreshClassSchedule()
         {
             _classScheduleDataGridView.Rows.Clear();
         }

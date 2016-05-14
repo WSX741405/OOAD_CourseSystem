@@ -14,7 +14,7 @@ namespace CourseSystem
         //time->  course is offered time 
         //range -> 1~9,A,B,C,D
         private char _time;
-        void TimeSliceInirial(int day,char time)
+        public void setTimeslice(int day,char time)
         {
             this._day = day;
             this._time = time;

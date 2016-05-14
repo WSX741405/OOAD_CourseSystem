@@ -57,5 +57,15 @@ namespace CourseSystem
             return status;
         }
 
+        /// <summary>
+        /// 學生查詢課表
+        /// </summary>
+        public DataTable getCourse(string studentId) 
+        {
+            DataTable course = new DataTable();
+            _courseModel.getCourse(studentId);
+            return course;
+        }
+
     }
 }
