@@ -13,8 +13,8 @@ namespace CourseSystem.View.Tests
         [TestMethod()]
         public void RegisterTest()
         {
-            presentationModel pModel = new presentationModel(new Model());
-            presentationModel _pModel = new presentationModel(new Model());
+            presentationModel pModel = new presentationModel(new Model(), new Course_Model());
+            presentationModel _pModel = new presentationModel(new Model(), new Course_Model());
             _pModel = pModel;
             Assert.AreEqual(_pModel, pModel);
         }
@@ -22,7 +22,7 @@ namespace CourseSystem.View.Tests
         [TestMethod()]
         public void CheckSuccessOrNotTest()
         {
-            presentationModel _pmodel = new presentationModel(new Model());
+            presentationModel _pmodel = new presentationModel(new Model(), new Course_Model());
             string _userId = "101590320";
             string _userPwd = "0000";
             string _userIdentity = "Student";

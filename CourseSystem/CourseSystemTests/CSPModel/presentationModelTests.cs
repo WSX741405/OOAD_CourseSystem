@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CourseSystem;
+
 namespace CourseSystem.Tests
 {
     [TestClass()]
     public class presentationModelTests
     {
-        presentationModel _testPModel = new presentationModel(new Model());
+        presentationModel _testPModel = new presentationModel(new Model(),new Course_Model());
         [TestMethod()]
         public void presentationModelTest()
         {
             Model model = new Model();
             Model _model = new Model();
+            Course_Model courseModel = new Course_Model();
+            Course_Model _courseModel = new Course_Model();
             _model = model;
+            _courseModel = courseModel;
             Assert.AreEqual(_model, model);
+            Assert.AreEqual(_courseModel, courseModel);
         }
 
         [TestMethod()]
@@ -73,5 +79,15 @@ namespace CourseSystem.Tests
             string status = _model.LogIn(testUserId, testPwd);
             Assert.AreEqual(status, "Success");
         }
+
+        //[TestMethod()]
+        //public void getUserMapCourseTest()
+        //{
+        //    string testUserId = "101590320";
+        //    Course_Model _courseModel = new Course_Model();
+        //    List<int> courseList = new List<int>();
+        //    courseList = _courseModel.getUserMapCourse(testUserId);
+        //    Assert.Fail();
+        //}
     }
 }

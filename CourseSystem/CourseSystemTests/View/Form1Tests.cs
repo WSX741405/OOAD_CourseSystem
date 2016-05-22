@@ -13,8 +13,8 @@ namespace CourseSystem.Tests
         [TestMethod()]
         public void Form1Test()
         {
-            presentationModel pModel = new presentationModel(new Model());
-            presentationModel _pModel = new presentationModel(new Model());
+            presentationModel pModel = new presentationModel(new Model(), new Course_Model());
+            presentationModel _pModel = new presentationModel(new Model(), new Course_Model());
             _pModel = pModel;
             Assert.AreEqual(_pModel, pModel);
         }
