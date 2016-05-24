@@ -34,6 +34,7 @@
             this._loginButton = new System.Windows.Forms.Button();
             this._logoutButton = new System.Windows.Forms.Button();
             this._helloLabel = new System.Windows.Forms.Label();
+            this._addCourseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
@@ -97,11 +98,23 @@
             this._helloLabel.Size = new System.Drawing.Size(0, 12);
             this._helloLabel.TabIndex = 5;
             // 
+            // _addCourseButton
+            // 
+            this._addCourseButton.Location = new System.Drawing.Point(223, 69);
+            this._addCourseButton.Name = "_addCourseButton";
+            this._addCourseButton.Size = new System.Drawing.Size(75, 23);
+            this._addCourseButton.TabIndex = 6;
+            this._addCourseButton.Text = "新增課程";
+            this._addCourseButton.UseVisualStyleBackColor = true;
+            this._addCourseButton.Visible = false;
+            this._addCourseButton.Click += new System.EventHandler(this.ClickAddCourseButton);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 320);
+            this.Controls.Add(this._addCourseButton);
             this.Controls.Add(this._helloLabel);
             this.Controls.Add(this._logoutButton);
             this.Controls.Add(this._loginButton);
@@ -123,6 +136,7 @@
         private System.Windows.Forms.Button _loginButton;
         private System.Windows.Forms.Button _logoutButton;
         private System.Windows.Forms.Label _helloLabel;
+        private System.Windows.Forms.Button _addCourseButton;
     }
 }
 

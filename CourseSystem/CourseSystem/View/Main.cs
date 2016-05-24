@@ -40,6 +40,7 @@ namespace CourseSystem
             _logInForm.ShowDialog();
             if (_logInForm.CheckSuccessOrNot() == true)
             {
+                _addCourseButton.Visible = true;
                 _checkClassScheduleButton.Visible = true;
                 _computeGradeButton.Visible = true;
                 _registerButton.Visible = false;
@@ -59,11 +60,22 @@ namespace CourseSystem
         {
             _checkClassScheduleButton.Visible = false;
             _computeGradeButton.Visible = false;
+            _addCourseButton.Visible = false;
             _registerButton.Visible = true;
             _logoutButton.Visible = false;
             _loginButton.Visible = true;
             _helloLabel.Text = "";
             _pmodel.ClearCurrentUser();
+        }
+
+        private void ClickAddCourseButton(object sender, EventArgs e)
+        {
+            AddCourse _addCourseForm = new AddCourse(_pmodel);
+            _addCourseForm.ShowDialog();
+            if (_addCourseForm.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show(this, "註冊成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
