@@ -32,15 +32,15 @@
             this._idTextBox = new System.Windows.Forms.TextBox();
             this._checkScheduleButton = new System.Windows.Forms.Button();
             this._classScheduleDataGridView = new System.Windows.Forms.DataGridView();
-            this._currentIdLabel = new System.Windows.Forms.Label();
-            this.Sunday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Thursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Wednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tuesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Wednesday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Thursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sunday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._currentIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._classScheduleDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,55 +91,12 @@
             this._classScheduleDataGridView.Size = new System.Drawing.Size(644, 436);
             this._classScheduleDataGridView.TabIndex = 3;
             // 
-            // _currentIdLabel
+            // Time
             // 
-            this._currentIdLabel.AutoSize = true;
-            this._currentIdLabel.Location = new System.Drawing.Point(55, 42);
-            this._currentIdLabel.Name = "_currentIdLabel";
-            this._currentIdLabel.Size = new System.Drawing.Size(0, 12);
-            this._currentIdLabel.TabIndex = 4;
-            // 
-            // Sunday
-            // 
-            this.Sunday.HeaderText = "星期日";
-            this.Sunday.Name = "Sunday";
-            this.Sunday.ReadOnly = true;
-            this.Sunday.Width = 75;
-            // 
-            // Saturday
-            // 
-            this.Saturday.HeaderText = "星期六";
-            this.Saturday.Name = "Saturday";
-            this.Saturday.ReadOnly = true;
-            this.Saturday.Width = 75;
-            // 
-            // Friday
-            // 
-            this.Friday.HeaderText = "星期五";
-            this.Friday.Name = "Friday";
-            this.Friday.ReadOnly = true;
-            this.Friday.Width = 75;
-            // 
-            // Thursday
-            // 
-            this.Thursday.HeaderText = "星期四";
-            this.Thursday.Name = "Thursday";
-            this.Thursday.ReadOnly = true;
-            this.Thursday.Width = 75;
-            // 
-            // Wednesday
-            // 
-            this.Wednesday.HeaderText = "星期三";
-            this.Wednesday.Name = "Wednesday";
-            this.Wednesday.ReadOnly = true;
-            this.Wednesday.Width = 76;
-            // 
-            // Tuesday
-            // 
-            this.Tuesday.HeaderText = "星期二";
-            this.Tuesday.Name = "Tuesday";
-            this.Tuesday.ReadOnly = true;
-            this.Tuesday.Width = 75;
+            this.Time.HeaderText = "";
+            this.Time.Name = "Time";
+            this.Time.ReadOnly = true;
+            this.Time.Width = 75;
             // 
             // Monday
             // 
@@ -148,12 +105,55 @@
             this.Monday.ReadOnly = true;
             this.Monday.Width = 75;
             // 
-            // Time
+            // Tuesday
             // 
-            this.Time.HeaderText = "";
-            this.Time.Name = "Time";
-            this.Time.ReadOnly = true;
-            this.Time.Width = 75;
+            this.Tuesday.HeaderText = "星期二";
+            this.Tuesday.Name = "Tuesday";
+            this.Tuesday.ReadOnly = true;
+            this.Tuesday.Width = 75;
+            // 
+            // Wednesday
+            // 
+            this.Wednesday.HeaderText = "星期三";
+            this.Wednesday.Name = "Wednesday";
+            this.Wednesday.ReadOnly = true;
+            this.Wednesday.Width = 76;
+            // 
+            // Thursday
+            // 
+            this.Thursday.HeaderText = "星期四";
+            this.Thursday.Name = "Thursday";
+            this.Thursday.ReadOnly = true;
+            this.Thursday.Width = 75;
+            // 
+            // Friday
+            // 
+            this.Friday.HeaderText = "星期五";
+            this.Friday.Name = "Friday";
+            this.Friday.ReadOnly = true;
+            this.Friday.Width = 75;
+            // 
+            // Saturday
+            // 
+            this.Saturday.HeaderText = "星期六";
+            this.Saturday.Name = "Saturday";
+            this.Saturday.ReadOnly = true;
+            this.Saturday.Width = 75;
+            // 
+            // Sunday
+            // 
+            this.Sunday.HeaderText = "星期日";
+            this.Sunday.Name = "Sunday";
+            this.Sunday.ReadOnly = true;
+            this.Sunday.Width = 75;
+            // 
+            // _currentIdLabel
+            // 
+            this._currentIdLabel.AutoSize = true;
+            this._currentIdLabel.Location = new System.Drawing.Point(55, 42);
+            this._currentIdLabel.Name = "_currentIdLabel";
+            this._currentIdLabel.Size = new System.Drawing.Size(0, 12);
+            this._currentIdLabel.TabIndex = 4;
             // 
             // PersonalClassSchedule
             // 
