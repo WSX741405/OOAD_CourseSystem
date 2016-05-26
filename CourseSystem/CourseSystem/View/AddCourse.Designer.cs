@@ -154,12 +154,13 @@
             this.Column1,
             this.日期,
             this.節數});
-            this._timeDataGridView.Location = new System.Drawing.Point(271, 163);
+            this._timeDataGridView.Location = new System.Drawing.Point(42, 163);
             this._timeDataGridView.Name = "_timeDataGridView";
             this._timeDataGridView.ReadOnly = true;
             this._timeDataGridView.RowTemplate.Height = 24;
-            this._timeDataGridView.Size = new System.Drawing.Size(284, 148);
+            this._timeDataGridView.Size = new System.Drawing.Size(389, 148);
             this._timeDataGridView.TabIndex = 9;
+            this._timeDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickTimeDataGridViewCell);
             // 
             // Column1
             // 
@@ -182,7 +183,7 @@
             // 
             // _addClassButton
             // 
-            this._addClassButton.Location = new System.Drawing.Point(42, 191);
+            this._addClassButton.Location = new System.Drawing.Point(437, 197);
             this._addClassButton.Name = "_addClassButton";
             this._addClassButton.Size = new System.Drawing.Size(75, 23);
             this._addClassButton.TabIndex = 10;
@@ -192,7 +193,7 @@
             // 
             // _clearClassButton
             // 
-            this._clearClassButton.Location = new System.Drawing.Point(151, 191);
+            this._clearClassButton.Location = new System.Drawing.Point(437, 243);
             this._clearClassButton.Name = "_clearClassButton";
             this._clearClassButton.Size = new System.Drawing.Size(75, 23);
             this._clearClassButton.TabIndex = 11;
