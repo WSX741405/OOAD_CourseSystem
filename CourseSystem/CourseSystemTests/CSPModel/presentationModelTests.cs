@@ -13,31 +13,17 @@ namespace CourseSystem.Tests
     [TestClass()]
     public class presentationModelTests
     {
+        Course_Model _courseModel = new Course_Model();
+        Model _model = new Model();
+        DataTable _userdata = new DataTable();
         presentationModel _testPModel = new presentationModel(new Model(),new Course_Model());
-        [TestMethod()]
-        public void presentationModelTest()
-        {
-            Model model = new Model();
-            Model _model = new Model();
-            Course_Model courseModel = new Course_Model();
-            Course_Model _courseModel = new Course_Model();
-            _model = model;
-            _courseModel = courseModel;
-            Assert.AreEqual(_model, model);
-            Assert.AreEqual(_courseModel, courseModel);
-        }
 
         [TestMethod()]
         public void GetCurrentUserTest()
         {
             string testUserId = "101590320";
-            Model _model = new Model();
-            DataTable _userdata = new DataTable();
             DataTable userdata = _model.FindUser(testUserId);
-            if (userdata.Rows.Count > 0)
-            {
                 _userdata = userdata;
-            }
             Assert.AreEqual(_userdata.Rows[0]["UserId"].ToString(),testUserId);
         }
 
@@ -45,15 +31,10 @@ namespace CourseSystem.Tests
         public void ClearCurrentUserTest()
         {
             string testUserId = "101590320";
-            Model _model = new Model();
-            DataTable _userdata = new DataTable();
             DataTable emptyData = new DataTable();
             DataTable userdata = _model.FindUser(testUserId);
             emptyData = _userdata;
-            if (userdata.Rows.Count > 0)
-            {
                 _userdata = userdata;
-            }
             _userdata.Clear();
             Assert.AreEqual(_userdata.Rows.Count, 0);
         }
@@ -61,7 +42,6 @@ namespace CourseSystem.Tests
         [TestMethod()]
         public void CreateUserTest()
         {
-            //prepare test Data
             string testUserId = "101590320";
             string testPwd = "0000";
             string testIdentity="Student";
@@ -75,19 +55,43 @@ namespace CourseSystem.Tests
         {
             string testUserId = "101590320";
             string testPwd = "0000";
-            Model _model = new Model();
             string status = _model.LogIn(testUserId, testPwd);
             Assert.AreEqual(status, "Success");
         }
 
-        //[TestMethod()]
-        //public void getUserMapCourseTest()
-        //{
-        //    string testUserId = "101590320";
-        //    Course_Model _courseModel = new Course_Model();
-        //    List<int> courseList = new List<int>();
-        //    courseList = _courseModel.getUserMapCourse(testUserId);
-        //    Assert.Fail();
-        //}
+        [TestMethod()]
+        public void getUserMapCourseTest()
+        {
+            string testUserId = "101590320";
+            List<int> courseList = new List<int>();
+            courseList = _courseModel.getUserMapCourse(testUserId);
+            Assert.AreEqual(courseList[0],1);
+        }
+
+        [TestMethod()]
+        public void getTimesliceByCourseIdTest()
+        {
+            int t_id = 1;
+            List<int> timeslice = new List<int>();
+            timeslice = _courseModel.getTimesliceByCourseId(t_id);
+            Assert.AreEqual(timeslice[0], 6);
+        }
+
+        [TestMethod()]
+        public void getTimesliceByTimesliceIdTest()
+        {
+            int t_id = 1;
+            List<int> timesliceData = new List<int>();
+            timesliceData = _courseModel.getTimesliceByTimesliceId(t_id);
+            Assert.AreEqual(timesliceData[0], 1);
+        }
+
+        [TestMethod()]
+        public void getCourseNameByCourseIdTest()
+        {
+            int c_id = 1;
+            string courseName = _courseModel.getCourseNameByCourseId(c_id);
+            Assert.AreEqual(courseName, "資訊檢索與應用");
+        }
     }
 }

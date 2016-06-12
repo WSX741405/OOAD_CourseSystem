@@ -65,10 +65,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="CSModel\Course_ModelTests.cs" />
     <Compile Include="CSModel\ModelTests.cs" />
     <Compile Include="CSPModel\presentationModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\Form1Tests.cs" />
     <Compile Include="View\LogInTests.cs" />
     <Compile Include="View\RegisterTests.cs" />
   </ItemGroup>
