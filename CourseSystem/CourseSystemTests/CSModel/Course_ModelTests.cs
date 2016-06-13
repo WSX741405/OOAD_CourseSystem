@@ -98,7 +98,18 @@ namespace CourseSystem.Tests
             cmd.CommandText = "SELECT * FROM course WHERE `CourseId` = @c_id";
             cmd.Parameters.AddWithValue("@c_id", c_id);
             DataTable dataset = ConnectDatabase(cmd, work);
-            Assert.AreEqual(dataset.Rows[0][1].ToString(), "資訊檢索與應用");
+            Assert.AreEqual(dataset.Rows[0][2].ToString(), "資訊檢索與應用");
+        }
+
+        [TestMethod()]
+        public void getFlowCourseIdByCourseNameTest()
+        {
+            string courseName = "Test", work = "S";
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM course WHERE `CourseName` = @courseName";
+            cmd.Parameters.AddWithValue("@courseName", courseName);
+            DataTable dataset = ConnectDatabase(cmd, work);
+            Assert.AreEqual(dataset.Rows[0][0].ToString(), "5");
         }
     }
 }

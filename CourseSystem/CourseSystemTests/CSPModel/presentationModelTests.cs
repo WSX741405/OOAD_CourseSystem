@@ -16,7 +16,7 @@ namespace CourseSystem.Tests
         Course_Model _courseModel = new Course_Model();
         Model _model = new Model();
         DataTable _userdata = new DataTable();
-        presentationModel _testPModel = new presentationModel(new Model(),new Course_Model());
+        presentationModel _testPModel = new presentationModel(new Model(), new Course_Model(), new Professor_Model());
 
         [TestMethod()]
         public void GetCurrentUserTest()
