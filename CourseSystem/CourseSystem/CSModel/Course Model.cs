@@ -47,16 +47,6 @@ namespace CourseSystem
             return dataset;
         }
 
-        ///// <summary>
-        ///// 教授新增課程 尚未完成
-        ///// </summary>
-        //public void addCourseForProfessor(string courseName,int courseId)
-        //{
-        //    Course course = new Course();
-        //    course._courseId=courseId;
-        //    course._courseName=courseName;
-        //}
-
         /// <summary>
         /// 由學生ID查詢該名學生的課表之課程ID
         /// </summary>
@@ -123,12 +113,28 @@ namespace CourseSystem
         {
             DataTable courseData = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT * FROM course WHERE `CourseId` = @c_id";
+            cmd.CommandText = "SELECT * FROM course WHERE `Id` = @c_id";
             cmd.Parameters.AddWithValue("@c_id", c_id);
             string WORK = "S";
             courseData = ConnectDatabase(cmd, WORK);
-            string courseName = courseData.Rows[0][1].ToString();
+            string courseName = courseData.Rows[0][2].ToString();
             return courseName;
         }
+
+        /// <summary>
+        /// 由課程名稱查詢課程流水號
+        /// </summary>
+        public int getFlowCourseIdByCourseName(string courseName) 
+        {
+            DataTable courseData = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM course WHERE `CourseName` = @courseName";
+            cmd.Parameters.AddWithValue("@courseName", courseName);
+            string WORK = "S";
+            courseData = ConnectDatabase(cmd, WORK);
+            int courseFlowId = int.Parse(courseData.Rows[0][0].ToString());
+            return courseFlowId;
+        }
+
     }
 }

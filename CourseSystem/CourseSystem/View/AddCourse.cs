@@ -12,22 +12,54 @@ namespace CourseSystem.View
 {
     public partial class AddCourse : Form
     {
-        List<string> _dateList = new List<string>();
+        List<string> _tempDateList = new List<string>();
+        List<string> _tempTimeList = new List<string>();
         List<string> _timeList = new List<string>();
-        StringBuilder _classTimeList = new StringBuilder();
+        StringBuilder _classTime = new StringBuilder();
+        DataTable _timeslice = new DataTable();
         presentationModel _pmodel;
         public AddCourse(presentationModel pmodel)
         {
             _pmodel = pmodel;
             InitializeComponent();
             InitializeGridView();
+            InitializeDataTable();
         }
 
+        /// <summary>
+        /// 初始化datatable
+        /// </summary>
+        public void InitializeDataTable() 
+        {
+            _timeslice.Columns.Add(new DataColumn("date", typeof(string)));
+            _timeslice.Columns.Add(new DataColumn("time", typeof(string)));
+        }
+
+        /// <summary>
+        /// 初始化datagridview
+        /// </summary>
+        public void InitializeGridView()
+        {
+            _timeDataGridView.Rows.Clear();
+            for (int i = 0; i < 5; i++)
+            {
+                _timeDataGridView.Rows.Add();
+                _timeDataGridView.Rows[i].Cells[0].Value = i.ToString();
+            }
+        }
+
+        /// <summary>
+        /// 確認新增課程
+        /// </summary>
         private void ClickOKButton(object sender, EventArgs e)
         {
+            _pmodel.AddCourse(_timeslice,_courseNameTextBox.Text,_courseIdTextBox.Text);
             this.DialogResult = DialogResult.OK;
         }
 
+        /// <summary>
+        /// 取消新增課程
+        /// </summary>
         private void ClickCancelButton(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -39,7 +71,15 @@ namespace CourseSystem.View
         /// </summary>
         private void ClickAddClassButton(object sender, EventArgs e)
         {
-            if (_dateComboBox.SelectedIndex==-1)
+            if (_courseNameTextBox.Text == "") 
+            {
+                MessageBox.Show(this, "課程名稱不可為空!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (_courseIdTextBox.Text == "") 
+            {
+                MessageBox.Show(this, "課號不可為空!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (_dateComboBox.SelectedIndex==-1)
             {
                 MessageBox.Show(this, "日期不可為空!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -47,43 +87,50 @@ namespace CourseSystem.View
             {
                 MessageBox.Show(this, "節數不可為空!!", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
+            else //將課程時間暫存
             {
                 for (int i = 0; i < _ClassCheckedListBox.CheckedItems.Count; i++)
                 {
-                    _classTimeList.AppendLine(_ClassCheckedListBox.CheckedItems[i].ToString());
+                    _tempTimeList.Add(_ClassCheckedListBox.CheckedItems[i].ToString());
+                    _classTime.AppendLine(_ClassCheckedListBox.CheckedItems[i].ToString());
                 }
-                _dateList.Add(_dateComboBox.SelectedItem.ToString());
-                _timeList.Add(_classTimeList.ToString());
+                _tempDateList.Add(_dateComboBox.SelectedItem.ToString());
+                _timeList.Add(_classTime.ToString());
+                for (int i = 0; i < _tempTimeList.Count; i++)
+                {
+                    DataRow dr = _timeslice.NewRow();
+                    dr["date"] = _tempDateList[0].ToString();
+                    dr["time"] = _tempTimeList[i].ToString();
+                    _timeslice.Rows.Add(dr);
+                    
+                }
+                //Console.WriteLine(_timeslice.Rows[0].ItemArray[0]);
                 RefreshDataGridView();
-                _classTimeList.Clear();
+                _tempTimeList.Clear();
+                _classTime.Clear();
             }
         }
 
-        public void InitializeGridView() 
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                _timeDataGridView.Rows.Add();
-                _timeDataGridView.Rows[i].Cells[0].Value = i.ToString();
-            }
-        }
 
+
+        /// <summary>
+        /// 刷新datagridview頁面
+        /// </summary>
         public void RefreshDataGridView() 
         {
+
             InitializeGridView();
-            DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            btn.Text = "刪除";
-            btn.HeaderText = "刪除";
-            btn.Name = "btn";
-            btn.Width = 100;
-            btn.UseColumnTextForButtonValue = true;
-            _timeDataGridView.Columns.Add(btn);
-            for (int i = 0; i < _dateList.Count; i++) 
+            if (_tempDateList.Count == 0) 
             {
-                _timeDataGridView.Rows[i].Cells[1].Value = _dateList[i].ToString();
-                _timeDataGridView.Rows[i].Cells[2].Value = _timeList[i].ToString();   
+                _timeDataGridView.Columns[3].Visible = false;
             }
+            for (int i = 0; i < _tempDateList.Count; i++)
+            {
+                _timeDataGridView.Rows[i].Cells[1].Value = _tempDateList[i].ToString();
+                _timeDataGridView.Rows[i].Cells[2].Value = _timeList[i].ToString();
+            }
+            _timeDataGridView.Columns[3].Visible = true;
+            
         }
 
         /// <summary>
@@ -96,7 +143,17 @@ namespace CourseSystem.View
                 DialogResult dr = MessageBox.Show(this, "是否確定刪除", "警告", MessageBoxButtons.OKCancel);
                 if (dr == DialogResult.OK) 
                 {
+                    foreach(DataRow da in _timeslice.Rows)
+                    {
+                        if (Convert.ToInt32(da[0]) == e.RowIndex) 
+                        {
+                            da.Delete();
+                        }
+                    }
                     _timeDataGridView.Rows.RemoveAt(e.RowIndex);
+                    _tempDateList.RemoveAt(e.RowIndex);
+                    _timeList.RemoveAt(e.RowIndex);
+                    RefreshDataGridView();
                 }
             }
         }

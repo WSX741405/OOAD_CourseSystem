@@ -18,7 +18,8 @@ namespace CourseSystem
             Application.SetCompatibleTextRenderingDefault(false);
             Model model = new Model();
             Course_Model courseModel = new Course_Model();
-            presentationModel PModel = new presentationModel(model,courseModel);
+            Professor_Model professorModel = new Professor_Model();
+            presentationModel PModel = new presentationModel(model,courseModel,professorModel);
             Application.Run(new Form1(PModel));
         }
     }

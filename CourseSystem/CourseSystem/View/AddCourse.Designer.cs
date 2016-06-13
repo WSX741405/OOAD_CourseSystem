@@ -31,19 +31,20 @@
             this._courseNameLabel = new System.Windows.Forms.Label();
             this._OKButton = new System.Windows.Forms.Button();
             this._CancelButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this._courseNameTextBox = new System.Windows.Forms.TextBox();
             this._courseIdLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this._courseIdTextBox = new System.Windows.Forms.TextBox();
             this._weekLabel = new System.Windows.Forms.Label();
             this._dateComboBox = new System.Windows.Forms.ComboBox();
             this._ClassCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this._timeDataGridView = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.節數 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._addClassButton = new System.Windows.Forms.Button();
             this._clearClassButton = new System.Windows.Forms.Button();
             this._timesliceLabel = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.節數 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this._timeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,12 +77,12 @@
             this._CancelButton.UseVisualStyleBackColor = true;
             this._CancelButton.Click += new System.EventHandler(this.ClickCancelButton);
             // 
-            // textBox1
+            // _courseNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 3;
+            this._courseNameTextBox.Location = new System.Drawing.Point(126, 29);
+            this._courseNameTextBox.Name = "_courseNameTextBox";
+            this._courseNameTextBox.Size = new System.Drawing.Size(100, 22);
+            this._courseNameTextBox.TabIndex = 3;
             // 
             // _courseIdLabel
             // 
@@ -92,12 +93,12 @@
             this._courseIdLabel.TabIndex = 4;
             this._courseIdLabel.Text = "課號：";
             // 
-            // textBox2
+            // _courseIdTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(126, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 5;
+            this._courseIdTextBox.Location = new System.Drawing.Point(126, 71);
+            this._courseIdTextBox.Name = "_courseIdTextBox";
+            this._courseIdTextBox.Size = new System.Drawing.Size(100, 22);
+            this._courseIdTextBox.TabIndex = 5;
             // 
             // _weekLabel
             // 
@@ -153,7 +154,8 @@
             this._timeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.日期,
-            this.節數});
+            this.節數,
+            this.delete});
             this._timeDataGridView.Location = new System.Drawing.Point(42, 163);
             this._timeDataGridView.Name = "_timeDataGridView";
             this._timeDataGridView.ReadOnly = true;
@@ -161,25 +163,6 @@
             this._timeDataGridView.Size = new System.Drawing.Size(389, 148);
             this._timeDataGridView.TabIndex = 9;
             this._timeDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickTimeDataGridViewCell);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 40;
-            // 
-            // 日期
-            // 
-            this.日期.HeaderText = "date";
-            this.日期.Name = "日期";
-            this.日期.ReadOnly = true;
-            // 
-            // 節數
-            // 
-            this.節數.HeaderText = "time";
-            this.節數.Name = "節數";
-            this.節數.ReadOnly = true;
             // 
             // _addClassButton
             // 
@@ -209,6 +192,34 @@
             this._timesliceLabel.TabIndex = 12;
             this._timesliceLabel.Text = "節數：";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 40;
+            // 
+            // 日期
+            // 
+            this.日期.HeaderText = "date";
+            this.日期.Name = "日期";
+            this.日期.ReadOnly = true;
+            // 
+            // 節數
+            // 
+            this.節數.HeaderText = "time";
+            this.節數.Name = "節數";
+            this.節數.ReadOnly = true;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "Delete";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Text = "刪除";
+            this.delete.UseColumnTextForButtonValue = true;
+            this.delete.Visible = false;
+            // 
             // AddCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -221,9 +232,9 @@
             this.Controls.Add(this._ClassCheckedListBox);
             this.Controls.Add(this._dateComboBox);
             this.Controls.Add(this._weekLabel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this._courseIdTextBox);
             this.Controls.Add(this._courseIdLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this._courseNameTextBox);
             this.Controls.Add(this._CancelButton);
             this.Controls.Add(this._OKButton);
             this.Controls.Add(this._courseNameLabel);
@@ -240,9 +251,9 @@
         private System.Windows.Forms.Label _courseNameLabel;
         private System.Windows.Forms.Button _OKButton;
         private System.Windows.Forms.Button _CancelButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox _courseNameTextBox;
         private System.Windows.Forms.Label _courseIdLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox _courseIdTextBox;
         private System.Windows.Forms.Label _weekLabel;
         private System.Windows.Forms.ComboBox _dateComboBox;
         private System.Windows.Forms.CheckedListBox _ClassCheckedListBox;
@@ -253,5 +264,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 節數;
+        private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }

@@ -10,13 +10,15 @@ namespace CourseSystem
 {
     public class presentationModel
     {
+        Professor_Model _professorModel;
         Course_Model _courseModel;
         Model _model;
         DataTable _userdata;
-        public presentationModel(Model model,Course_Model courseModel) 
+        public presentationModel(Model model,Course_Model courseModel,Professor_Model professorModel) 
         {
             _model = model;
             _courseModel = courseModel;
+            _professorModel = professorModel;
         }
 
         /// <summary>
@@ -94,6 +96,14 @@ namespace CourseSystem
         {
             string courseName = _courseModel.getCourseNameByCourseId(c_id);
             return courseName;
+        }
+
+        /// <summary>
+        /// 新增課程
+        /// </summary>
+        public void AddCourse(DataTable timeslice, string courseName, string courseId) 
+        {
+            _professorModel.AddClass(timeslice,courseName,courseId);
         }
     }
 }
