@@ -52,7 +52,7 @@ namespace CourseSystem
         /// 新增課程
         /// </summary>
 
-        public void AddClass(DataTable timeslice, string courseName, string courseId)
+        public void OfferCourse(DataTable timeslice, string courseName, string courseId)
         {
             //新增進course
             MySqlCommand cmd = new MySqlCommand();

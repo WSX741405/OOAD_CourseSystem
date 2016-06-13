@@ -53,7 +53,7 @@ namespace CourseSystem.View
         /// </summary>
         private void ClickOKButton(object sender, EventArgs e)
         {
-            _pmodel.AddCourse(_timeslice,_courseNameTextBox.Text,_courseIdTextBox.Text);
+            _pmodel.OfferCourse(_timeslice,_courseNameTextBox.Text,_courseIdTextBox.Text);
             this.DialogResult = DialogResult.OK;
         }
 
