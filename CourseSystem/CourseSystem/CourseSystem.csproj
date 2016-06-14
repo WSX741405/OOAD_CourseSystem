@@ -61,11 +61,11 @@
     <Compile Include="CSModel\User Model.cs" />
     <Compile Include="CSPModel\PModel.cs" />
     <Compile Include="SQLHelper.cs" />
-    <Compile Include="View\AddCourse.cs">
+    <Compile Include="View\OfferCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\AddCourse.Designer.cs">
-      <DependentUpon>AddCourse.cs</DependentUpon>
+    <Compile Include="View\OfferCourse.Designer.cs">
+      <DependentUpon>OfferCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ComputeGrade.cs">
       <SubType>Form</SubType>
@@ -108,8 +108,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\AddCourse.resx">
-      <DependentUpon>AddCourse.cs</DependentUpon>
+    <EmbeddedResource Include="View\OfferCourse.resx">
+      <DependentUpon>OfferCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ComputeGrade.resx">
       <DependentUpon>ComputeGrade.cs</DependentUpon>

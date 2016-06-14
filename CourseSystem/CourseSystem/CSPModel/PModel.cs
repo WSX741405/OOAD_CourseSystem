@@ -101,9 +101,9 @@ namespace CourseSystem
         /// <summary>
         /// 新增課程
         /// </summary>
-        public void OfferCourse(DataTable timeslice, string courseName, string courseId) 
+        public void OfferCourse(List<string>dateList,List<string>timeList, string courseName, string courseId) 
         {
-            _professorModel.OfferCourse(timeslice,courseName,courseId);
+            _professorModel.OfferCourse(dateList,timeList,courseName,courseId);
         }
     }
 }

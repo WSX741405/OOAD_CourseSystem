@@ -10,29 +10,16 @@ using System.Windows.Forms;
 
 namespace CourseSystem.View
 {
-    public partial class AddCourse : Form
+    public partial class OfferCourse : Form
     {
         List<string> _tempDateList = new List<string>();
         List<string> _tempTimeList = new List<string>();
-        List<string> _timeList = new List<string>();
-        StringBuilder _classTime = new StringBuilder();
-        DataTable _timeslice = new DataTable();
         presentationModel _pmodel;
-        public AddCourse(presentationModel pmodel)
+        public OfferCourse(presentationModel pmodel)
         {
             _pmodel = pmodel;
             InitializeComponent();
             InitializeGridView();
-            InitializeDataTable();
-        }
-
-        /// <summary>
-        /// 初始化datatable
-        /// </summary>
-        public void InitializeDataTable() 
-        {
-            _timeslice.Columns.Add(new DataColumn("date", typeof(string)));
-            _timeslice.Columns.Add(new DataColumn("time", typeof(string)));
         }
 
         /// <summary>
@@ -53,7 +40,7 @@ namespace CourseSystem.View
         /// </summary>
         private void ClickOKButton(object sender, EventArgs e)
         {
-            _pmodel.OfferCourse(_timeslice,_courseNameTextBox.Text,_courseIdTextBox.Text);
+            _pmodel.OfferCourse(_tempDateList,_tempTimeList,_courseNameTextBox.Text,_courseIdTextBox.Text);
             this.DialogResult = DialogResult.OK;
         }
 
@@ -91,23 +78,25 @@ namespace CourseSystem.View
             {
                 for (int i = 0; i < _ClassCheckedListBox.CheckedItems.Count; i++)
                 {
-                    _tempTimeList.Add(_ClassCheckedListBox.CheckedItems[i].ToString());
-                    _classTime.AppendLine(_ClassCheckedListBox.CheckedItems[i].ToString());
+                    int flag = 0;
+                    for (int j = 0; j < _tempDateList.Count; j++) 
+                    {
+                        if (_tempDateList[j] == _dateComboBox.SelectedItem.ToString() && _tempTimeList[j] == _ClassCheckedListBox.CheckedItems[i].ToString())
+                        {
+                            flag = 1;
+                        }
+                    }
+                    if (flag != 1)
+                    {
+                        _tempDateList.Add(_dateComboBox.SelectedItem.ToString());
+                        _tempTimeList.Add(_ClassCheckedListBox.CheckedItems[i].ToString());
+                    }
                 }
-                _tempDateList.Add(_dateComboBox.SelectedItem.ToString());
-                _timeList.Add(_classTime.ToString());
-                for (int i = 0; i < _tempTimeList.Count; i++)
-                {
-                    DataRow dr = _timeslice.NewRow();
-                    dr["date"] = _tempDateList[0].ToString();
-                    dr["time"] = _tempTimeList[i].ToString();
-                    _timeslice.Rows.Add(dr);
-                    
-                }
-                //Console.WriteLine(_timeslice.Rows[0].ItemArray[0]);
-                RefreshDataGridView();
-                _tempTimeList.Clear();
-                _classTime.Clear();
+                RefreshDataGridView();;
+                //for (int i = 0; i < _ClassCheckedListBox.CheckedItems.Count; i++) 
+                //{
+                //    _ClassCheckedListBox.SetItemChecked(i, false);
+                //}
             }
         }
 
@@ -127,7 +116,7 @@ namespace CourseSystem.View
             for (int i = 0; i < _tempDateList.Count; i++)
             {
                 _timeDataGridView.Rows[i].Cells[1].Value = _tempDateList[i].ToString();
-                _timeDataGridView.Rows[i].Cells[2].Value = _timeList[i].ToString();
+                _timeDataGridView.Rows[i].Cells[2].Value = _tempTimeList[i].ToString();
             }
             _timeDataGridView.Columns[3].Visible = true;
             
@@ -138,22 +127,19 @@ namespace CourseSystem.View
         /// </summary>
         private void ClickTimeDataGridViewCell(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0)
+                return;
             if (e.ColumnIndex == 3 ) 
             {
                 DialogResult dr = MessageBox.Show(this, "是否確定刪除", "警告", MessageBoxButtons.OKCancel);
                 if (dr == DialogResult.OK) 
                 {
-                    foreach(DataRow da in _timeslice.Rows)
-                    {
-                        if (Convert.ToInt32(da[0]) == e.RowIndex) 
-                        {
-                            da.Delete();
-                        }
-                    }
                     _timeDataGridView.Rows.RemoveAt(e.RowIndex);
                     _tempDateList.RemoveAt(e.RowIndex);
-                    _timeList.RemoveAt(e.RowIndex);
+                    _tempTimeList.RemoveAt(e.RowIndex);
                     RefreshDataGridView();
+                    Console.WriteLine(_tempDateList);
+                    Console.WriteLine(_tempTimeList);
                 }
             }
         }

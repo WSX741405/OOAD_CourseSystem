@@ -70,7 +70,7 @@ namespace CourseSystem
 
         private void ClickAddCourseButton(object sender, EventArgs e)
         {
-            AddCourse _addCourseForm = new AddCourse(_pmodel);
+            OfferCourse _addCourseForm = new OfferCourse(_pmodel);
             _addCourseForm.ShowDialog();
             if (_addCourseForm.DialogResult == DialogResult.OK)
             {

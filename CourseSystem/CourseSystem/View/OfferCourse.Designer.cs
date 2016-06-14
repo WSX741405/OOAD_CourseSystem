@@ -1,6 +1,6 @@
 ﻿namespace CourseSystem.View
 {
-    partial class AddCourse
+    partial class OfferCourse
     {
         /// <summary>
         /// Required designer variable.
@@ -38,13 +38,13 @@
             this._dateComboBox = new System.Windows.Forms.ComboBox();
             this._ClassCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this._timeDataGridView = new System.Windows.Forms.DataGridView();
-            this._addClassButton = new System.Windows.Forms.Button();
-            this._clearClassButton = new System.Windows.Forms.Button();
-            this._timesliceLabel = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.節數 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this._addClassButton = new System.Windows.Forms.Button();
+            this._clearClassButton = new System.Windows.Forms.Button();
+            this._timesliceLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._timeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,10 +138,10 @@
             "7",
             "8",
             "9",
-            "A",
-            "B",
-            "C",
-            "D"});
+            "10",
+            "11",
+            "12",
+            "13"});
             this._ClassCheckedListBox.Location = new System.Drawing.Point(271, 57);
             this._ClassCheckedListBox.Name = "_ClassCheckedListBox";
             this._ClassCheckedListBox.Size = new System.Drawing.Size(241, 89);
@@ -163,34 +163,6 @@
             this._timeDataGridView.Size = new System.Drawing.Size(389, 148);
             this._timeDataGridView.TabIndex = 9;
             this._timeDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickTimeDataGridViewCell);
-            // 
-            // _addClassButton
-            // 
-            this._addClassButton.Location = new System.Drawing.Point(437, 197);
-            this._addClassButton.Name = "_addClassButton";
-            this._addClassButton.Size = new System.Drawing.Size(75, 23);
-            this._addClassButton.TabIndex = 10;
-            this._addClassButton.Text = "加入";
-            this._addClassButton.UseVisualStyleBackColor = true;
-            this._addClassButton.Click += new System.EventHandler(this.ClickAddClassButton);
-            // 
-            // _clearClassButton
-            // 
-            this._clearClassButton.Location = new System.Drawing.Point(437, 243);
-            this._clearClassButton.Name = "_clearClassButton";
-            this._clearClassButton.Size = new System.Drawing.Size(75, 23);
-            this._clearClassButton.TabIndex = 11;
-            this._clearClassButton.Text = "取消";
-            this._clearClassButton.UseVisualStyleBackColor = true;
-            // 
-            // _timesliceLabel
-            // 
-            this._timesliceLabel.AutoSize = true;
-            this._timesliceLabel.Location = new System.Drawing.Point(269, 32);
-            this._timesliceLabel.Name = "_timesliceLabel";
-            this._timesliceLabel.Size = new System.Drawing.Size(41, 12);
-            this._timesliceLabel.TabIndex = 12;
-            this._timesliceLabel.Text = "節數：";
             // 
             // Column1
             // 
@@ -220,7 +192,35 @@
             this.delete.UseColumnTextForButtonValue = true;
             this.delete.Visible = false;
             // 
-            // AddCourse
+            // _addClassButton
+            // 
+            this._addClassButton.Location = new System.Drawing.Point(437, 197);
+            this._addClassButton.Name = "_addClassButton";
+            this._addClassButton.Size = new System.Drawing.Size(75, 23);
+            this._addClassButton.TabIndex = 10;
+            this._addClassButton.Text = "加入";
+            this._addClassButton.UseVisualStyleBackColor = true;
+            this._addClassButton.Click += new System.EventHandler(this.ClickAddClassButton);
+            // 
+            // _clearClassButton
+            // 
+            this._clearClassButton.Location = new System.Drawing.Point(437, 243);
+            this._clearClassButton.Name = "_clearClassButton";
+            this._clearClassButton.Size = new System.Drawing.Size(75, 23);
+            this._clearClassButton.TabIndex = 11;
+            this._clearClassButton.Text = "取消";
+            this._clearClassButton.UseVisualStyleBackColor = true;
+            // 
+            // _timesliceLabel
+            // 
+            this._timesliceLabel.AutoSize = true;
+            this._timesliceLabel.Location = new System.Drawing.Point(269, 32);
+            this._timesliceLabel.Name = "_timesliceLabel";
+            this._timesliceLabel.Size = new System.Drawing.Size(41, 12);
+            this._timesliceLabel.TabIndex = 12;
+            this._timesliceLabel.Text = "節數：";
+            // 
+            // OfferCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +238,7 @@
             this.Controls.Add(this._CancelButton);
             this.Controls.Add(this._OKButton);
             this.Controls.Add(this._courseNameLabel);
-            this.Name = "AddCourse";
+            this.Name = "OfferCourse";
             this.Text = "AddCourse";
             ((System.ComponentModel.ISupportInitialize)(this._timeDataGridView)).EndInit();
             this.ResumeLayout(false);
