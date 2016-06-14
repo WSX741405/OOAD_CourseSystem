@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this._checkClassScheduleButton = new System.Windows.Forms.Button();
-            this._computeGradeButton = new System.Windows.Forms.Button();
+            this._selectCourseButton = new System.Windows.Forms.Button();
             this._registerButton = new System.Windows.Forms.Button();
             this._loginButton = new System.Windows.Forms.Button();
             this._logoutButton = new System.Windows.Forms.Button();
@@ -48,16 +48,16 @@
             this._checkClassScheduleButton.Visible = false;
             this._checkClassScheduleButton.Click += new System.EventHandler(this.ClickCheckClassScheduleButton);
             // 
-            // _computeGradeButton
+            // _selectCourseButton
             // 
-            this._computeGradeButton.Location = new System.Drawing.Point(126, 70);
-            this._computeGradeButton.Name = "_computeGradeButton";
-            this._computeGradeButton.Size = new System.Drawing.Size(75, 23);
-            this._computeGradeButton.TabIndex = 1;
-            this._computeGradeButton.Text = "成績計算";
-            this._computeGradeButton.UseVisualStyleBackColor = true;
-            this._computeGradeButton.Visible = false;
-            this._computeGradeButton.Click += new System.EventHandler(this.ClickComputeGradeButton);
+            this._selectCourseButton.Location = new System.Drawing.Point(126, 70);
+            this._selectCourseButton.Name = "_selectCourseButton";
+            this._selectCourseButton.Size = new System.Drawing.Size(75, 23);
+            this._selectCourseButton.TabIndex = 1;
+            this._selectCourseButton.Text = "學生選課";
+            this._selectCourseButton.UseVisualStyleBackColor = true;
+            this._selectCourseButton.Visible = false;
+            this._selectCourseButton.Click += new System.EventHandler(this.ClickComputeGradeButton);
             // 
             // _registerButton
             // 
@@ -119,7 +119,7 @@
             this.Controls.Add(this._logoutButton);
             this.Controls.Add(this._loginButton);
             this.Controls.Add(this._registerButton);
-            this.Controls.Add(this._computeGradeButton);
+            this.Controls.Add(this._selectCourseButton);
             this.Controls.Add(this._checkClassScheduleButton);
             this.Name = "Form1";
             this.Text = "課程系統";
@@ -131,7 +131,7 @@
         #endregion
 
         private System.Windows.Forms.Button _checkClassScheduleButton;
-        private System.Windows.Forms.Button _computeGradeButton;
+        private System.Windows.Forms.Button _selectCourseButton;
         private System.Windows.Forms.Button _registerButton;
         private System.Windows.Forms.Button _loginButton;
         private System.Windows.Forms.Button _logoutButton;

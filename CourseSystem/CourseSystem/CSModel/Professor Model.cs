@@ -55,7 +55,7 @@ namespace CourseSystem
         /// 新增課程
         /// </summary>
 
-        public void OfferCourse(List<string> dateList, List<string> timeList, string courseName, string courseId)
+        public void OfferCourse(List<string> dateList, List<string> timeList, string courseName, string courseId,string userId)
         {
             //新增進course
             MySqlCommand cmd = new MySqlCommand();
@@ -65,6 +65,16 @@ namespace CourseSystem
             cmd.Parameters.AddWithValue("@courseId", courseId);
             cmd.Parameters.AddWithValue("@courseName", courseName);
             DataTable insertDs = ConnectDatabase(cmd, WORK);
+
+            //新增進usermapcourse
+            int courseFlowId = _courseModel.getFlowCourseIdByCourseName(courseName);
+            WORK = "I"; //傳入執行動作進入ConnectDatabase
+            cmd.CommandText = "INSERT INTO `usermapcourse`(`s_id`, `p_id`, `c_id`) VALUES ('',@p_id,@c_id)";
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@p_id", userId);
+            cmd.Parameters.AddWithValue("@c_id", courseFlowId);
+            DataTable umc = ConnectDatabase(cmd, WORK);
+
             //新增進coursemaptimeslice
             for (int i = 0; i < dateList.Count; i++)
             {

@@ -42,7 +42,7 @@ namespace CourseSystem
             {
                 _addCourseButton.Visible = true;
                 _checkClassScheduleButton.Visible = true;
-                _computeGradeButton.Visible = true;
+                _selectCourseButton.Visible = true;
                 _registerButton.Visible = false;
                 _logoutButton.Visible = true;
                 _loginButton.Visible = false;
@@ -59,7 +59,7 @@ namespace CourseSystem
         private void ClickLogOutButton(object sender, EventArgs e)
         {
             _checkClassScheduleButton.Visible = false;
-            _computeGradeButton.Visible = false;
+            _selectCourseButton.Visible = false;
             _addCourseButton.Visible = false;
             _registerButton.Visible = true;
             _logoutButton.Visible = false;
@@ -74,7 +74,7 @@ namespace CourseSystem
             _addCourseForm.ShowDialog();
             if (_addCourseForm.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show(this, "註冊成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "開設課程成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

@@ -40,7 +40,8 @@ namespace CourseSystem.View
         /// </summary>
         private void ClickOKButton(object sender, EventArgs e)
         {
-            _pmodel.OfferCourse(_tempDateList,_tempTimeList,_courseNameTextBox.Text,_courseIdTextBox.Text);
+            string userId = _pmodel.GetCurrentUser();
+            _pmodel.OfferCourse(_tempDateList,_tempTimeList,_courseNameTextBox.Text,_courseIdTextBox.Text,userId);
             this.DialogResult = DialogResult.OK;
         }
 
