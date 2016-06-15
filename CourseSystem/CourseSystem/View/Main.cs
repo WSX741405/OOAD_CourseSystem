@@ -28,10 +28,13 @@ namespace CourseSystem
             classSchedule.ShowDialog();
         }
 
-        private void ClickComputeGradeButton(object sender, EventArgs e)
+        private void ClickSelectCourseButton(object sender, EventArgs e)
         {
             SelectedCourse selectCourse = new SelectedCourse(_pmodel);
-            selectCourse.ShowDialog();
+            if (selectCourse.ShowDialog() == DialogResult.OK) 
+            {
+                MessageBox.Show(this, "加選課程成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ClickLogInButton(object sender, EventArgs e)

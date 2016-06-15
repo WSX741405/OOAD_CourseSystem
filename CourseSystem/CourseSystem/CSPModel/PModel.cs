@@ -12,13 +12,15 @@ namespace CourseSystem
     {
         Professor_Model _professorModel;
         Course_Model _courseModel;
+        Student _studentModel;
         Model _model;
         DataTable _userdata;
-        public presentationModel(Model model,Course_Model courseModel,Professor_Model professorModel) 
+        public presentationModel(Model model,Course_Model courseModel,Professor_Model professorModel,Student studentModel ) 
         {
             _model = model;
             _courseModel = courseModel;
             _professorModel = professorModel;
+            _studentModel = studentModel;
         }
 
         /// <summary>
@@ -62,10 +64,10 @@ namespace CourseSystem
         /// <summary>
         /// 查詢課程連結時間
         /// </summary>
-        public List<int> getUserMapCourse(string studentId) 
+        public List<int> getStudentSelectedCourse(string studentId) 
         {
             List<int> courseList = new List<int>();
-            courseList = _courseModel.getUserMapCourse(studentId);
+            courseList = _courseModel.getStudentSelectedCourse(studentId);
             return courseList;
         }
 
@@ -131,6 +133,14 @@ namespace CourseSystem
         {
             int courseId = _courseModel.getCourseIdByFlowCourseId(flowCourseId);
             return courseId;
+        }
+
+        /// <summary>
+        /// 新增學生選課進usermapcourse
+        /// </summary>
+        public void StudentSelectCourse(List<int> c_id,string userId) 
+        {
+            _studentModel.StudentSelectCourse(c_id,userId);
         }
     }
 }

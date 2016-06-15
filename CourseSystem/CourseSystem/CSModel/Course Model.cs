@@ -50,7 +50,7 @@ namespace CourseSystem
         /// <summary>
         /// 由學生ID查詢該名學生的課表之課程ID
         /// </summary>
-        public List<int> getUserMapCourse(string studentId)
+        public List<int> getStudentSelectedCourse(string studentId)
         {
             List<int>courseList=new List<int>();
             DataTable course = new DataTable();
@@ -71,7 +71,7 @@ namespace CourseSystem
         /// </summary>
         public List<int> getTimesliceByCourseId(int c_id)
         {
-            List<int> timesliceList = new List<int>();
+            List<int> timesliceList= new List<int>();
             DataTable timesliceData = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = "SELECT * FROM coursemaptimeslice WHERE `c_id` = @c_id";
@@ -119,6 +119,21 @@ namespace CourseSystem
             courseData = ConnectDatabase(cmd, WORK);
             string courseName = courseData.Rows[0][2].ToString();
             return courseName;
+        }
+
+        /// <summary>
+        /// 由課程ID查詢課程流水號
+        /// </summary>
+        public int getFlowCourseIdByCourseId(int courseId) 
+        {
+            DataTable courseData = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM course WHERE `CourseId` = @c_id";
+            cmd.Parameters.AddWithValue("@c_id",courseId);
+            string WORK = "S";
+            courseData = ConnectDatabase(cmd, WORK);
+            int flowCourseId = int.Parse(courseData.Rows[0][0].ToString());
+            return flowCourseId;
         }
 
         /// <summary>

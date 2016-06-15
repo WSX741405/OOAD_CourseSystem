@@ -43,7 +43,7 @@ namespace CourseSystem.View
             {
                 _courseList.Clear();
             }
-            _courseList = _pmodel.getUserMapCourse(_idTextBox.Text);
+            _courseList = _pmodel.getStudentSelectedCourse(_idTextBox.Text);
 
             RefreshClassSchedule();
         }

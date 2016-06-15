@@ -12,7 +12,9 @@ namespace CourseSystem.View
 {
     public partial class SelectedCourse : Form
     {
-        DataTable _userMapCourseList = new DataTable();
+        string userId;
+        DataTable _professorCourseList = new DataTable(); //列出教授開課課程
+        List<int> _studentAlreadySelectedCourse = new List<int>(); //列出學生以選課程
         List<int> _pIdList = new List<int>();
         List<int> _cIdList = new List<int>();
         List<string> _cNameList = new List<string>();
@@ -24,21 +26,32 @@ namespace CourseSystem.View
         {
             _pmodel = pmodel;
             InitializeComponent();
+            userId = _pmodel.GetCurrentUser();
             _showStudentNameLabel.Text = _pmodel.GetCurrentUser();
             initializeCourseData();
             RefreshSelectCourseGridView();
             RefreshStudentSelectCourseGridView();
-
+            _studentSelectCourseDataGridView.Columns[4].Visible = false;
         }
 
         public void initializeCourseData() 
         {
-            _userMapCourseList = _pmodel.GetCourseList();
-            foreach (DataRow dr in _userMapCourseList.Rows) 
+            _studentAlreadySelectedCourse = _pmodel.getStudentSelectedCourse(userId);
+            _professorCourseList = _pmodel.GetCourseList();
+            foreach (DataRow dr in _professorCourseList.Rows) 
             {
-                _pIdList.Add(int.Parse(dr[1].ToString()));
-                _cIdList.Add(_pmodel.getCourseIdByFlowCourseId(int.Parse(dr[2].ToString())));
-                _cNameList.Add(_pmodel.getCourseNameByFlowCourseId(int.Parse(dr[2].ToString())));
+                int flag = 0;
+                for (int i = 0; i < _studentAlreadySelectedCourse.Count; i++) 
+                {
+                    if (_studentAlreadySelectedCourse[i] == int.Parse(dr[2].ToString())) 
+                        flag = 1;
+                }
+                if (flag != 1)
+                {
+                    _pIdList.Add(int.Parse(dr[1].ToString()));
+                    _cIdList.Add(_pmodel.getCourseIdByFlowCourseId(int.Parse(dr[2].ToString())));
+                    _cNameList.Add(_pmodel.getCourseNameByFlowCourseId(int.Parse(dr[2].ToString())));
+                }
             }
         }
 
@@ -160,6 +173,18 @@ namespace CourseSystem.View
                     }
                 }
             }
+        }
+
+        private void ClickCancelButton(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void ClickOKButton(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            SortCourseList(_studentSelectCId, _studentSelectPId, _studentSelectCName);
+            _pmodel.StudentSelectCourse(_studentSelectCId,userId);
         }
 
 

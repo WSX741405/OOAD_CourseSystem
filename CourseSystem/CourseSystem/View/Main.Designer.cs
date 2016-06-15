@@ -57,7 +57,7 @@
             this._selectCourseButton.Text = "學生選課";
             this._selectCourseButton.UseVisualStyleBackColor = true;
             this._selectCourseButton.Visible = false;
-            this._selectCourseButton.Click += new System.EventHandler(this.ClickComputeGradeButton);
+            this._selectCourseButton.Click += new System.EventHandler(this.ClickSelectCourseButton);
             // 
             // _registerButton
             // 

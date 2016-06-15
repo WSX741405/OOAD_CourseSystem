@@ -44,6 +44,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this._OKButton = new System.Windows.Forms.Button();
+            this._cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._courseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._studentSelectCourseDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -191,11 +193,33 @@
             this.Column10.UseColumnTextForButtonValue = true;
             this.Column10.Visible = false;
             // 
+            // _OKButton
+            // 
+            this._OKButton.Location = new System.Drawing.Point(185, 435);
+            this._OKButton.Name = "_OKButton";
+            this._OKButton.Size = new System.Drawing.Size(75, 23);
+            this._OKButton.TabIndex = 6;
+            this._OKButton.Text = "加選";
+            this._OKButton.UseVisualStyleBackColor = true;
+            this._OKButton.Click += new System.EventHandler(this.ClickOKButton);
+            // 
+            // _cancelButton
+            // 
+            this._cancelButton.Location = new System.Drawing.Point(294, 435);
+            this._cancelButton.Name = "_cancelButton";
+            this._cancelButton.Size = new System.Drawing.Size(75, 23);
+            this._cancelButton.TabIndex = 7;
+            this._cancelButton.Text = "取消";
+            this._cancelButton.UseVisualStyleBackColor = true;
+            this._cancelButton.Click += new System.EventHandler(this.ClickCancelButton);
+            // 
             // SelectedCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 472);
+            this.Controls.Add(this._cancelButton);
+            this.Controls.Add(this._OKButton);
             this.Controls.Add(this._studentSelectCourseDataGridView);
             this.Controls.Add(this._alreadySelectLabel);
             this.Controls.Add(this._selectedCourseLabel);
@@ -229,5 +253,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewButtonColumn Column10;
+        private System.Windows.Forms.Button _OKButton;
+        private System.Windows.Forms.Button _cancelButton;
     }
 }

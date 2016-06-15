@@ -64,7 +64,7 @@ namespace CourseSystem.Tests
         {
             string testUserId = "101590320";
             List<int> courseList = new List<int>();
-            courseList = _courseModel.getUserMapCourse(testUserId);
+            courseList = _courseModel.getStudentSelectedCourse(testUserId);
             Assert.AreEqual(courseList[0],1);
         }
 

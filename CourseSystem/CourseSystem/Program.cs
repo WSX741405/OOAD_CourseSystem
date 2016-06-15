@@ -19,7 +19,8 @@ namespace CourseSystem
             Model model = new Model();
             Course_Model courseModel = new Course_Model();
             Professor_Model professorModel = new Professor_Model(courseModel);
-            presentationModel PModel = new presentationModel(model,courseModel,professorModel);
+            Student studentModel = new Student(courseModel);
+            presentationModel PModel = new presentationModel(model,courseModel,professorModel,studentModel);
             Application.Run(new Form1(PModel));
         }
     }
