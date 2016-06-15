@@ -87,6 +87,10 @@ namespace CourseSystem
         {
             DropCourse _dropCourseForm = new DropCourse(_pmodel);
             _dropCourseForm.ShowDialog();
+            if (_dropCourseForm.DialogResult == DialogResult.OK) 
+            {
+                MessageBox.Show(this, "退選課程成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

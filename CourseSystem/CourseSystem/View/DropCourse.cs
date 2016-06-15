@@ -119,5 +119,36 @@ namespace CourseSystem.View
                 RefreshDropCourseDataGridView();
             }
         }
+
+        private void ClickDropCouresDataGridViewCell(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 3) 
+            {
+                _studentSelectCId.Add(_cIdDropList[e.RowIndex]);
+                _studentSelectCName.Add(_cNameDropList[e.RowIndex]);
+                _cIdDropList.RemoveAt(e.RowIndex);
+                _cNameDropList.RemoveAt(e.RowIndex);
+                RefreshCourseDataGridView();
+                RefreshDropCourseDataGridView();
+            }
+        }
+
+        private void ClickCancelButton(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void _OKButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show(this, "是否確定退選", "警告", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                SortCourseList(_cIdDropList,_cNameDropList);
+                _pmodel.StudentDropCourse(_cIdDropList, userId);
+            }
+        }
     }
 }

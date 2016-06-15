@@ -142,5 +142,13 @@ namespace CourseSystem
         {
             _studentModel.StudentSelectCourse(c_id,userId);
         }
+
+        /// <summary>
+        /// 學生退選功能
+        /// </summary>
+        public void StudentDropCourse(List<int>c_id,string userId)
+        {
+            _studentModel.StudentDropCourse(c_id, userId);
+        }
     }
 }

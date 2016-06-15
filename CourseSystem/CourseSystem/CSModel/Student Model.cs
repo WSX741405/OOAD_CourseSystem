@@ -63,7 +63,21 @@ namespace CourseSystem
                 string WORK = "I";
                 DataTable da = ConnectDatabase(cmd, WORK);
             }
+        }
 
+        public void StudentDropCourse(List<int> c_id, string userId) 
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            for (int i = 0; i < c_id.Count; i++)
+            {
+                int flowCourseId = _courseModel.getFlowCourseIdByCourseId(c_id[i]);
+                cmd.CommandText = "DELETE FROM `usermapcourse` WHERE `c_id`=@c_id AND`s_id`=@userId";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@c_id", flowCourseId);
+                string WORK = "D";
+                DataTable da = ConnectDatabase(cmd, WORK);
+            }
         }
     }
 }
