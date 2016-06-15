@@ -105,5 +105,32 @@ namespace CourseSystem
         {
             _professorModel.OfferCourse(dateList,timeList,courseName,courseId,userId);
         }
+
+        /// <summary>
+        /// 由課程流水號查詢課程名稱
+        /// </summary>
+        public string getCourseNameByFlowCourseId(int flowCourseId) 
+        {
+            string courseName = _courseModel.getCourseNameByFlowCourseId(flowCourseId);
+            return courseName;
+        }
+
+        /// <summary>
+        /// 搜尋所有教授開課的課程
+        /// </summary>
+        public DataTable GetCourseList() 
+        {
+            DataTable courseList = _courseModel.GetCourseList();
+            return courseList;
+        }
+
+        /// <summary>
+        /// 由課程流水號查詢課程ID
+        /// </summary>
+        public int getCourseIdByFlowCourseId(int flowCourseId) 
+        {
+            int courseId = _courseModel.getCourseIdByFlowCourseId(flowCourseId);
+            return courseId;
+        }
     }
 }

@@ -136,5 +136,47 @@ namespace CourseSystem
             return courseFlowId;
         }
 
+        /// <summary>
+        /// 由課程流水號查詢課程名稱
+        /// </summary>
+        public string getCourseNameByFlowCourseId(int flowCourseId)
+        {
+            DataTable courseData = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM course WHERE `Id` = @flowCourseId";
+            cmd.Parameters.AddWithValue("@flowCourseId", flowCourseId);
+            string WORK = "S";
+            courseData = ConnectDatabase(cmd, WORK);
+            string courseName = courseData.Rows[0][2].ToString();
+            return courseName;
+        }
+
+        /// <summary>
+        /// 由課程流水號查詢課程ID
+        /// </summary>
+        public int getCourseIdByFlowCourseId (int flowCourseId)
+        {
+            DataTable courseData = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM course WHERE `Id` = @flowCourseId";
+            cmd.Parameters.AddWithValue("@flowCourseId", flowCourseId);
+            string WORK = "S";
+            courseData = ConnectDatabase(cmd, WORK);
+            int courseid = int.Parse(courseData.Rows[0][1].ToString());
+            return courseid;
+        }
+
+        /// <summary>
+        /// 搜尋所有教授開課的課程
+        /// </summary>
+        public DataTable GetCourseList()
+        {
+            DataTable courseList = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM `usermapcourse` WHERE `p_id` !=''";
+            string WORK = "S";
+            courseList = ConnectDatabase(cmd, WORK);
+            return courseList;
+        }
     }
 }

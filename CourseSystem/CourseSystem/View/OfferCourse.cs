@@ -94,10 +94,6 @@ namespace CourseSystem.View
                     }
                 }
                 RefreshDataGridView();;
-                //for (int i = 0; i < _ClassCheckedListBox.CheckedItems.Count; i++) 
-                //{
-                //    _ClassCheckedListBox.SetItemChecked(i, false);
-                //}
             }
         }
 

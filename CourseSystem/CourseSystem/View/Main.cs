@@ -30,8 +30,8 @@ namespace CourseSystem
 
         private void ClickComputeGradeButton(object sender, EventArgs e)
         {
-            ComputeGrade studentGrade = new ComputeGrade();
-            studentGrade.ShowDialog();
+            SelectedCourse selectCourse = new SelectedCourse(_pmodel);
+            selectCourse.ShowDialog();
         }
 
         private void ClickLogInButton(object sender, EventArgs e)
