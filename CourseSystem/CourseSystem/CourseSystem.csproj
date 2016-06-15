@@ -61,6 +61,12 @@
     <Compile Include="CSModel\User Model.cs" />
     <Compile Include="CSPModel\PModel.cs" />
     <Compile Include="SQLHelper.cs" />
+    <Compile Include="View\DropCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DropCourse.Designer.cs">
+      <DependentUpon>DropCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\OfferCourse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\DropCourse.resx">
+      <DependentUpon>DropCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\OfferCourse.resx">
       <DependentUpon>OfferCourse.cs</DependentUpon>
     </EmbeddedResource>

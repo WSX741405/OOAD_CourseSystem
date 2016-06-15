@@ -35,6 +35,7 @@
             this._logoutButton = new System.Windows.Forms.Button();
             this._helloLabel = new System.Windows.Forms.Label();
             this._addCourseButton = new System.Windows.Forms.Button();
+            this._dropCourseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
@@ -50,7 +51,7 @@
             // 
             // _selectCourseButton
             // 
-            this._selectCourseButton.Location = new System.Drawing.Point(126, 70);
+            this._selectCourseButton.Location = new System.Drawing.Point(114, 70);
             this._selectCourseButton.Name = "_selectCourseButton";
             this._selectCourseButton.Size = new System.Drawing.Size(75, 23);
             this._selectCourseButton.TabIndex = 1;
@@ -100,7 +101,7 @@
             // 
             // _addCourseButton
             // 
-            this._addCourseButton.Location = new System.Drawing.Point(223, 69);
+            this._addCourseButton.Location = new System.Drawing.Point(276, 70);
             this._addCourseButton.Name = "_addCourseButton";
             this._addCourseButton.Size = new System.Drawing.Size(75, 23);
             this._addCourseButton.TabIndex = 6;
@@ -109,11 +110,23 @@
             this._addCourseButton.Visible = false;
             this._addCourseButton.Click += new System.EventHandler(this.ClickAddCourseButton);
             // 
+            // _dropCourseButton
+            // 
+            this._dropCourseButton.Location = new System.Drawing.Point(195, 70);
+            this._dropCourseButton.Name = "_dropCourseButton";
+            this._dropCourseButton.Size = new System.Drawing.Size(75, 23);
+            this._dropCourseButton.TabIndex = 7;
+            this._dropCourseButton.Text = "學生退課";
+            this._dropCourseButton.UseVisualStyleBackColor = true;
+            this._dropCourseButton.Visible = false;
+            this._dropCourseButton.Click += new System.EventHandler(this.ClickDropCourseButton);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(790, 320);
+            this.Controls.Add(this._dropCourseButton);
             this.Controls.Add(this._addCourseButton);
             this.Controls.Add(this._helloLabel);
             this.Controls.Add(this._logoutButton);
@@ -137,6 +150,7 @@
         private System.Windows.Forms.Button _logoutButton;
         private System.Windows.Forms.Label _helloLabel;
         private System.Windows.Forms.Button _addCourseButton;
+        private System.Windows.Forms.Button _dropCourseButton;
     }
 }
 

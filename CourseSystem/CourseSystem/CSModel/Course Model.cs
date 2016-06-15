@@ -48,7 +48,7 @@ namespace CourseSystem
         }
 
         /// <summary>
-        /// 由學生ID查詢該名學生的課表之課程ID
+        /// 由學生ID查詢該名學生的課表之課程流水號
         /// </summary>
         public List<int> getStudentSelectedCourse(string studentId)
         {

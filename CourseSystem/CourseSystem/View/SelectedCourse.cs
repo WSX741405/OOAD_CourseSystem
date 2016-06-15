@@ -109,9 +109,6 @@ namespace CourseSystem.View
                 return;
             if (e.ColumnIndex == 4)
             {
-                DialogResult dr = MessageBox.Show(this, "是否確定加選", "警告", MessageBoxButtons.OKCancel);
-                if (dr == DialogResult.OK) 
-                {
                     _studentSelectCName.Add(_cNameList[e.RowIndex]);
                     _studentSelectCId.Add(_cIdList[e.RowIndex]);
                     _studentSelectPId.Add(_pIdList[e.RowIndex]);
@@ -121,7 +118,6 @@ namespace CourseSystem.View
                     _cNameList.RemoveAt(e.RowIndex);
                     RefreshSelectCourseGridView();
                     RefreshStudentSelectCourseGridView();
-                }
             }
         }
 
@@ -131,9 +127,6 @@ namespace CourseSystem.View
                 return;
             if (e.ColumnIndex == 4)
             {
-                DialogResult dr = MessageBox.Show(this, "是否確定取消加選", "警告", MessageBoxButtons.OKCancel);
-                if (dr == DialogResult.OK) 
-                {
                     _cIdList.Add(_studentSelectCId[e.RowIndex]);
                     _cNameList.Add(_studentSelectCName[e.RowIndex]);
                     _pIdList.Add(_studentSelectPId[e.RowIndex]);
@@ -142,7 +135,6 @@ namespace CourseSystem.View
                     _studentSelectCId.RemoveAt(e.RowIndex);
                     RefreshStudentSelectCourseGridView();
                     RefreshSelectCourseGridView();
-                }
             }
         }
 
@@ -182,9 +174,14 @@ namespace CourseSystem.View
 
         private void ClickOKButton(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            SortCourseList(_studentSelectCId, _studentSelectPId, _studentSelectCName);
-            _pmodel.StudentSelectCourse(_studentSelectCId,userId);
+            DialogResult dr = MessageBox.Show(this, "是否確定加選", "警告", MessageBoxButtons.OKCancel);
+            if (dr == DialogResult.OK)
+            {
+                this.DialogResult = DialogResult.OK;
+                SortCourseList(_studentSelectCId, _studentSelectPId, _studentSelectCName);
+                _pmodel.StudentSelectCourse(_studentSelectCId, userId);
+            }
+
         }
 
 

@@ -49,6 +49,7 @@ namespace CourseSystem
                 _registerButton.Visible = false;
                 _logoutButton.Visible = true;
                 _loginButton.Visible = false;
+                _dropCourseButton.Visible = true;
                 _helloLabel.Text = "Hello!! "+_pmodel.GetCurrentUser();
             }
         }
@@ -67,6 +68,7 @@ namespace CourseSystem
             _registerButton.Visible = true;
             _logoutButton.Visible = false;
             _loginButton.Visible = true;
+            _dropCourseButton.Visible = false;
             _helloLabel.Text = "";
             _pmodel.ClearCurrentUser();
         }
@@ -79,6 +81,12 @@ namespace CourseSystem
             {
                 MessageBox.Show(this, "開設課程成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void ClickDropCourseButton(object sender, EventArgs e)
+        {
+            DropCourse _dropCourseForm = new DropCourse(_pmodel);
+            _dropCourseForm.ShowDialog();
         }
     }
 }
