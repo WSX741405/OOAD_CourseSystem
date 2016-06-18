@@ -193,5 +193,25 @@ namespace CourseSystem
             courseList = ConnectDatabase(cmd, WORK);
             return courseList;
         }
+
+        ///
+        /// 由課程ID搜尋修課學生
+        /// 
+        public List<string> GetStudentIdFromCourseId(int courseId) 
+        {
+            List<string> studentList = new List<string>();
+            int flowCourseId = getFlowCourseIdByCourseId(courseId);
+            DataTable userData = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM `usermapcourse` WHERE `c_id` = @flowCourseId AND `s_id`!=''";
+            cmd.Parameters.AddWithValue("@flowCourseId", flowCourseId);
+            string WORK = "S";
+            userData = ConnectDatabase(cmd, WORK);
+            foreach (DataRow dr in userData.Rows) 
+            {
+                studentList.Add(dr[0].ToString());
+            }
+            return studentList;
+        }
     }
 }

@@ -113,8 +113,24 @@ namespace CourseSystem
                 cmd.Parameters.AddWithValue("@t_id", t_id);
                 DataTable time = ConnectDatabase(cmd, WORK);
             }
-
-
+        }
+        /// <summary>
+        /// 搜尋教授開課的課程
+        /// </summary>
+        public List<int> GetProfessorOfferCourse(string p_id)
+        {
+            List<int> course = new List<int>();
+            DataTable courseList = new DataTable();
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM `usermapcourse` WHERE `p_id` =@p_id";
+            cmd.Parameters.AddWithValue("@p_id", p_id);
+            string WORK = "S";
+            courseList = ConnectDatabase(cmd, WORK);
+            foreach (DataRow dr in courseList.Rows) 
+            {
+                course.Add(int.Parse(dr[2].ToString()));
+            }
+            return course;
         }
     }
 }

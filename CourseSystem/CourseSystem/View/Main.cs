@@ -50,6 +50,7 @@ namespace CourseSystem
                 _logoutButton.Visible = true;
                 _loginButton.Visible = false;
                 _dropCourseButton.Visible = true;
+                _reviewSelectCourseButton.Visible = true;
                 _helloLabel.Text = "Hello!! "+_pmodel.GetCurrentUser();
             }
         }
@@ -69,6 +70,7 @@ namespace CourseSystem
             _logoutButton.Visible = false;
             _loginButton.Visible = true;
             _dropCourseButton.Visible = false;
+            _reviewSelectCourseButton.Visible = false;
             _helloLabel.Text = "";
             _pmodel.ClearCurrentUser();
         }
@@ -91,6 +93,12 @@ namespace CourseSystem
             {
                 MessageBox.Show(this, "退選課程成功!!", "成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void ClickReviewSelectCourseButton(object sender, EventArgs e)
+        {
+            ReviewSelectedCourse reviewForm = new ReviewSelectedCourse(_pmodel);
+            reviewForm.ShowDialog();
         }
     }
 }

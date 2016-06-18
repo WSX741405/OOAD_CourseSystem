@@ -150,5 +150,23 @@ namespace CourseSystem
         {
             _studentModel.StudentDropCourse(c_id, userId);
         }
+
+        /// <summary>
+        /// 搜尋教授開課的課程
+        /// </summary>
+        public List<int> GetProfessorOfferCourse(string p_id)
+        {
+            return _professorModel.GetProfessorOfferCourse(p_id);
+        }
+
+        ///
+        /// 由課程ID搜尋修課學生
+        /// 
+        public List<string> GetStudentIdFromCourseId(int courseId)
+        {
+            List<string> studentList = new List<string>();
+            studentList = _courseModel.GetStudentIdFromCourseId(courseId);
+            return studentList;
+        }
     }
 }

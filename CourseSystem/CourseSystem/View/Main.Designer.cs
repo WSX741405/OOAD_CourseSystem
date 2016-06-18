@@ -36,6 +36,7 @@
             this._helloLabel = new System.Windows.Forms.Label();
             this._addCourseButton = new System.Windows.Forms.Button();
             this._dropCourseButton = new System.Windows.Forms.Button();
+            this._reviewSelectCourseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _checkClassScheduleButton
@@ -62,7 +63,7 @@
             // 
             // _registerButton
             // 
-            this._registerButton.Location = new System.Drawing.Point(462, 35);
+            this._registerButton.Location = new System.Drawing.Point(283, 41);
             this._registerButton.Name = "_registerButton";
             this._registerButton.Size = new System.Drawing.Size(75, 23);
             this._registerButton.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // _loginButton
             // 
-            this._loginButton.Location = new System.Drawing.Point(557, 35);
+            this._loginButton.Location = new System.Drawing.Point(283, 12);
             this._loginButton.Name = "_loginButton";
             this._loginButton.Size = new System.Drawing.Size(75, 23);
             this._loginButton.TabIndex = 3;
@@ -82,7 +83,7 @@
             // 
             // _logoutButton
             // 
-            this._logoutButton.Location = new System.Drawing.Point(557, 35);
+            this._logoutButton.Location = new System.Drawing.Point(283, 12);
             this._logoutButton.Name = "_logoutButton";
             this._logoutButton.Size = new System.Drawing.Size(75, 23);
             this._logoutButton.TabIndex = 4;
@@ -101,7 +102,7 @@
             // 
             // _addCourseButton
             // 
-            this._addCourseButton.Location = new System.Drawing.Point(276, 70);
+            this._addCourseButton.Location = new System.Drawing.Point(33, 106);
             this._addCourseButton.Name = "_addCourseButton";
             this._addCourseButton.Size = new System.Drawing.Size(75, 23);
             this._addCourseButton.TabIndex = 6;
@@ -121,11 +122,23 @@
             this._dropCourseButton.Visible = false;
             this._dropCourseButton.Click += new System.EventHandler(this.ClickDropCourseButton);
             // 
+            // _reviewSelectCourseButton
+            // 
+            this._reviewSelectCourseButton.Location = new System.Drawing.Point(115, 106);
+            this._reviewSelectCourseButton.Name = "_reviewSelectCourseButton";
+            this._reviewSelectCourseButton.Size = new System.Drawing.Size(88, 23);
+            this._reviewSelectCourseButton.TabIndex = 8;
+            this._reviewSelectCourseButton.Text = "查詢學生修課";
+            this._reviewSelectCourseButton.UseVisualStyleBackColor = true;
+            this._reviewSelectCourseButton.Visible = false;
+            this._reviewSelectCourseButton.Click += new System.EventHandler(this.ClickReviewSelectCourseButton);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 320);
+            this.ClientSize = new System.Drawing.Size(379, 141);
+            this.Controls.Add(this._reviewSelectCourseButton);
             this.Controls.Add(this._dropCourseButton);
             this.Controls.Add(this._addCourseButton);
             this.Controls.Add(this._helloLabel);
@@ -151,6 +164,7 @@
         private System.Windows.Forms.Label _helloLabel;
         private System.Windows.Forms.Button _addCourseButton;
         private System.Windows.Forms.Button _dropCourseButton;
+        private System.Windows.Forms.Button _reviewSelectCourseButton;
     }
 }
 
