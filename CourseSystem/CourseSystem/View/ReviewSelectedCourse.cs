@@ -54,7 +54,7 @@ namespace CourseSystem.View
             for (int i = 0; i < _courseList.Count; i++) 
             {
                 _courseListDataGridView.Rows[i].Cells[1].Value = _cIdList[i].ToString();
-                _courseListDataGridView.Rows[i].Cells[1].Value = _cIdList[i].ToString();
+                _courseListDataGridView.Rows[i].Cells[2].Value = _cNameList[i].ToString();
             }
         }
 

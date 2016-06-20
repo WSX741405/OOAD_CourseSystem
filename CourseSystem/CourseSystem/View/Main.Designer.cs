@@ -63,7 +63,7 @@
             // 
             // _registerButton
             // 
-            this._registerButton.Location = new System.Drawing.Point(283, 41);
+            this._registerButton.Location = new System.Drawing.Point(202, 42);
             this._registerButton.Name = "_registerButton";
             this._registerButton.Size = new System.Drawing.Size(75, 23);
             this._registerButton.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             // _loginButton
             // 
-            this._loginButton.Location = new System.Drawing.Point(283, 12);
+            this._loginButton.Location = new System.Drawing.Point(202, 13);
             this._loginButton.Name = "_loginButton";
             this._loginButton.Size = new System.Drawing.Size(75, 23);
             this._loginButton.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // _logoutButton
             // 
-            this._logoutButton.Location = new System.Drawing.Point(283, 12);
+            this._logoutButton.Location = new System.Drawing.Point(202, 13);
             this._logoutButton.Name = "_logoutButton";
             this._logoutButton.Size = new System.Drawing.Size(75, 23);
             this._logoutButton.TabIndex = 4;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 121);
+            this.ClientSize = new System.Drawing.Size(300, 121);
             this.Controls.Add(this._reviewSelectCourseButton);
             this.Controls.Add(this._dropCourseButton);
             this.Controls.Add(this._addCourseButton);
