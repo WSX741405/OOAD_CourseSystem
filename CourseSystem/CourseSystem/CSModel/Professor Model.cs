@@ -60,9 +60,10 @@ namespace CourseSystem
             //新增進course
             MySqlCommand cmd = new MySqlCommand();
             string WORK = "I"; //傳入執行動作進入ConnectDatabase
+            int c_Id = int.Parse(courseId.ToString());
             cmd.CommandText = "INSERT INTO `course`(`Id`, `CourseId`, `CourseName`) VALUES ('',@courseId,@courseName)";
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@courseId", courseId);
+            cmd.Parameters.AddWithValue("@courseId", c_Id);
             cmd.Parameters.AddWithValue("@courseName", courseName);
             DataTable insertDs = ConnectDatabase(cmd, WORK);
 

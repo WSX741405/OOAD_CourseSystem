@@ -41,7 +41,7 @@ namespace CourseSystem.View
         private void ClickOKButton(object sender, EventArgs e)
         {
             string userId = _pmodel.GetCurrentUser();
-            _pmodel.OfferCourse(_tempDateList,_tempTimeList,_courseNameTextBox.Text,_courseIdTextBox.Text,userId);
+            _pmodel.OfferCourse(_tempDateList,_tempTimeList,_courseNameTextBox.Text.ToString(),_courseIdTextBox.Text,userId);
             this.DialogResult = DialogResult.OK;
         }
 
