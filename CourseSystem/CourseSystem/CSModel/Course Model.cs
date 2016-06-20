@@ -50,15 +50,34 @@ namespace CourseSystem
         /// <summary>
         /// 由學生ID查詢該名學生的課表之課程流水號
         /// </summary>
-        public List<int> getStudentSelectedCourse(string studentId)
+        public List<int> getStudentSelectedCourse(string userId)
         {
             List<int>courseList=new List<int>();
+            DataTable user = new DataTable();
             DataTable course = new DataTable();
             MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "SELECT * FROM usermapcourse WHERE `s_Id` = @studentId";
-            cmd.Parameters.AddWithValue("@studentId", studentId);
+            string userIdentify;
+            cmd.CommandText = "SELECT * FROM user WHERE `UserId` = @userId";
+            cmd.Parameters.AddWithValue("@userId", userId);
             string WORK = "S";
-            course=ConnectDatabase(cmd,WORK);
+            user = ConnectDatabase(cmd, WORK);
+            userIdentify = user.Rows[0][3].ToString();
+            if (userIdentify == "Professor") 
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "SELECT * FROM usermapcourse WHERE `p_Id` = @userId";
+                cmd.Parameters.AddWithValue("@userId", userId);
+                WORK = "S";
+                course = ConnectDatabase(cmd, WORK);
+            }
+            else if (userIdentify == "Student") 
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "SELECT * FROM usermapcourse WHERE `s_Id` = @userId";
+                cmd.Parameters.AddWithValue("@userId", userId);
+                WORK = "S";
+                course = ConnectDatabase(cmd, WORK);
+            }
             foreach(DataRow da in course.Rows)
             {
                 courseList.Add(int.Parse(da[2].ToString()));
