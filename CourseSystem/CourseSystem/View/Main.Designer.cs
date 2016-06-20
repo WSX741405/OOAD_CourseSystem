@@ -41,7 +41,7 @@
             // 
             // _checkClassScheduleButton
             // 
-            this._checkClassScheduleButton.Location = new System.Drawing.Point(33, 70);
+            this._checkClassScheduleButton.Location = new System.Drawing.Point(33, 59);
             this._checkClassScheduleButton.Name = "_checkClassScheduleButton";
             this._checkClassScheduleButton.Size = new System.Drawing.Size(75, 23);
             this._checkClassScheduleButton.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             // _selectCourseButton
             // 
-            this._selectCourseButton.Location = new System.Drawing.Point(114, 70);
+            this._selectCourseButton.Location = new System.Drawing.Point(33, 88);
             this._selectCourseButton.Name = "_selectCourseButton";
             this._selectCourseButton.Size = new System.Drawing.Size(75, 23);
             this._selectCourseButton.TabIndex = 1;
@@ -102,7 +102,7 @@
             // 
             // _addCourseButton
             // 
-            this._addCourseButton.Location = new System.Drawing.Point(33, 106);
+            this._addCourseButton.Location = new System.Drawing.Point(33, 88);
             this._addCourseButton.Name = "_addCourseButton";
             this._addCourseButton.Size = new System.Drawing.Size(75, 23);
             this._addCourseButton.TabIndex = 6;
@@ -113,7 +113,7 @@
             // 
             // _dropCourseButton
             // 
-            this._dropCourseButton.Location = new System.Drawing.Point(195, 70);
+            this._dropCourseButton.Location = new System.Drawing.Point(114, 88);
             this._dropCourseButton.Name = "_dropCourseButton";
             this._dropCourseButton.Size = new System.Drawing.Size(75, 23);
             this._dropCourseButton.TabIndex = 7;
@@ -124,7 +124,7 @@
             // 
             // _reviewSelectCourseButton
             // 
-            this._reviewSelectCourseButton.Location = new System.Drawing.Point(115, 106);
+            this._reviewSelectCourseButton.Location = new System.Drawing.Point(114, 88);
             this._reviewSelectCourseButton.Name = "_reviewSelectCourseButton";
             this._reviewSelectCourseButton.Size = new System.Drawing.Size(88, 23);
             this._reviewSelectCourseButton.TabIndex = 8;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 141);
+            this.ClientSize = new System.Drawing.Size(379, 121);
             this.Controls.Add(this._reviewSelectCourseButton);
             this.Controls.Add(this._dropCourseButton);
             this.Controls.Add(this._addCourseButton);

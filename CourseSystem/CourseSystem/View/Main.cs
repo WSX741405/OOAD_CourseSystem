@@ -43,14 +43,20 @@ namespace CourseSystem
             _logInForm.ShowDialog();
             if (_logInForm.CheckSuccessOrNot() == true)
             {
-                _addCourseButton.Visible = true;
+                if (_pmodel.IdentifyUser(_pmodel.GetCurrentUser()) == "Professor") 
+                {
+                    _reviewSelectCourseButton.Visible = true;
+                    _addCourseButton.Visible = true;
+                }
+                else if (_pmodel.IdentifyUser(_pmodel.GetCurrentUser()) == "Student")
+                {
+                    _dropCourseButton.Visible = true;
+                    _selectCourseButton.Visible = true;
+                }
                 _checkClassScheduleButton.Visible = true;
-                _selectCourseButton.Visible = true;
                 _registerButton.Visible = false;
                 _logoutButton.Visible = true;
                 _loginButton.Visible = false;
-                _dropCourseButton.Visible = true;
-                _reviewSelectCourseButton.Visible = true;
                 _helloLabel.Text = "Hello!! "+_pmodel.GetCurrentUser();
             }
         }

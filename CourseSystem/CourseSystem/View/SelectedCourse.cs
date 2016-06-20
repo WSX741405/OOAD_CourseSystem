@@ -15,11 +15,11 @@ namespace CourseSystem.View
         string userId;
         DataTable _professorCourseList = new DataTable(); //列出教授開課課程
         List<int> _studentAlreadySelectedCourse = new List<int>(); //列出學生以選課程
-        List<int> _pIdList = new List<int>();
+        List<string> _pIdList = new List<string>();
         List<int> _cIdList = new List<int>();
         List<string> _cNameList = new List<string>();
         List<int> _studentSelectCId = new List<int>();
-        List<int> _studentSelectPId = new List<int>();
+        List<string> _studentSelectPId = new List<string>();
         List<string> _studentSelectCName = new List<string>();
         presentationModel _pmodel;
         public SelectedCourse(presentationModel pmodel)
@@ -48,7 +48,7 @@ namespace CourseSystem.View
                 }
                 if (flag != 1)
                 {
-                    _pIdList.Add(int.Parse(dr[1].ToString()));
+                    _pIdList.Add(dr[1].ToString());
                     _cIdList.Add(_pmodel.getCourseIdByFlowCourseId(int.Parse(dr[2].ToString())));
                     _cNameList.Add(_pmodel.getCourseNameByFlowCourseId(int.Parse(dr[2].ToString())));
                 }
@@ -141,7 +141,7 @@ namespace CourseSystem.View
         ///
         /// 排序課號
         ///
-        public void SortCourseList(List<int> cIdList,List<int> pIdList,List<string>cNameList) 
+        public void SortCourseList(List<int> cIdList,List<string> pIdList,List<string>cNameList) 
         {
             int itemp;
             string stemp;
@@ -155,9 +155,9 @@ namespace CourseSystem.View
                         _cIdList[i] = _cIdList[j];
                         _cIdList[j] = itemp;
 
-                        itemp = _pIdList[i];
+                        stemp = _pIdList[i];
                         _pIdList[i] = _pIdList[j];
-                        _pIdList[j] = itemp;
+                        _pIdList[j] = stemp;
 
                         stemp = _cNameList[i];
                         _cNameList[i] = _cNameList[j];

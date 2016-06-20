@@ -168,5 +168,14 @@ namespace CourseSystem
             studentList = _courseModel.GetStudentIdFromCourseId(courseId);
             return studentList;
         }
+
+        /// <summary>
+        /// 辨識使用者身分
+        /// </summary>
+        public string IdentifyUser(string userId)
+        {
+            string userIdentity = _model.IdentifyUser(userId);
+            return userIdentity;
+        }
     }
 }

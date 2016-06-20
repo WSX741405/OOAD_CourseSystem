@@ -121,5 +121,19 @@ namespace CourseSystem
             DataTable user = ConnectDatabase(cmd, WORK);
             return user; 
         }
+
+        /// <summary>
+        /// 辨識使用者身分
+        /// </summary>
+        public string IdentifyUser(string userId) 
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = "SELECT * FROM user WHERE `UserId` = @userId";
+            cmd.Parameters.AddWithValue("@userId", userId);
+            string WORK = "S";
+            DataTable user = ConnectDatabase(cmd, WORK);
+            string userIdentity = user.Rows[0][3].ToString();
+            return userIdentity; 
+        }
     }
 }
